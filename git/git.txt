@@ -32,4 +32,10 @@ Basic Git Commands through linux shell:
 
 11) git status => To see the updation status of your git repo./ To check if any changes is done or not.
 
-12)  
+12)  git pull => To Pull all the updates and changes which other user made in the remote repo.
+
+13) git branch => It tells, you are in which branch.
+
+14) git branch <branch_ name> => To make a new Branch.
+
+
