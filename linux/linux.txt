@@ -14,6 +14,13 @@ Example:
 (To change/shift to a diffrent Directory/path)
 
 Example: 
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ cd
+anoj@anoj-hp-probok-6460b:~$ ls
+ ali_git   Documents   examples.desktop   nanobox-codeigniter  'New Folder'   practice   README.md   Templates
+ Desktop   Downloads   Music              nanobox-rails         Pictures      Public     snap        Videos
+anoj@anoj-hp-probok-6460b:~$ cd practice/training/linux/
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
+anyfile.txt  linux.txt
 
 
 3) ls => List
@@ -21,6 +28,13 @@ Example:
 ( To get a list of all Folders and files of current Directory.)
 
 Example:
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
+anyfile.txt  linux.txt
+
+anoj@anoj-hp-probok-6460b:~$ ls
+ ali_git   Documents   examples.desktop   nanobox-codeigniter  'New Folder'   practice   README.md   Templates
+ Desktop   Downloads   Music              nanobox-rails         Pictures      Public     snap        Videos
+
 
 
 4) ls -a => List -all
@@ -28,6 +42,55 @@ Example:
 ( To get a list of all the Directories folders , files including the hidden Directories.)
 
 Example:
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls -a
+.  ..  anyfile.txt  linux.txt
 
 
-5) 
+
+5) mkdir <directory/folder name>  <directory/folder name> <etc.> => makedirectory
+
+(To make a new  Directory/Directories)
+
+Example: 
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ mkdir myfirstDirectory
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
+anyfile.txt  linux.txt  myfirstDirectory
+
+
+6) rmdir <directory/folder name>  <directory/folder name> <etc.> => remove Directory
+
+(To Remove an empty Directory/Directories)
+Example:
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
+anyfile.txt  linux.txt  myfirstDirectory
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ rmdir myfirstDirectory/
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
+anyfile.txt  linux.txt
+
+
+
+6) touch => (To create an empty file)
+
+Example:
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ touch anyfile.txt
+anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
+anyfile.txt  linux.txt
+
+
+7) copy => ctrl + shift + C
+
+8) paste => ctrl + shift + V
+
+
+
+9) rm => remove
+(To remove file/files)
+
+
+10 rm -r => remove recurssively
+(To remove a folder which containing files)
+
+11) rm -rf => remove forcefully
+(To Remove any file/files/Directory/Directories Forcefully)
+
+
