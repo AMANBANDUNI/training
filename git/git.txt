@@ -1,0 +1,24 @@
+Basic Git Commands through linux shell:
+
+1) git installation : sudo apt install git => To download and install the latest version of git.
+
+2) git config --global user.name "Type here your username" => To set your User name to the git repository.
+   git config --global user.email "Type here your emailID" =>  
+
+3) echo "# description" >>README.md => To add a README.md file with description.
+
+3) git init => To Initiallize git.
+
+
+4) git add => To add files/folders in the remote git repository| 
+
+	Example: a) git add linux.txt => this will add a txtfile named linux.txt.
+		 b) git add linux git => this will add 2 folders named linux, git respectively to git repo.
+
+5) git commit -m "" => To commit changes to the git repo with the description mention in the double quotes.
+
+6) git remote add origin <url> => This will link the github repository link to the current remote repo.
+
+7) git push origin main => To push the changes of the current remote repo to the cloud repo of github.
+
+8) 
