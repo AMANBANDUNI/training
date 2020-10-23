@@ -1,0 +1,31 @@
+Nano Editor Commands:
+
+1) Undo => Alt + U
+
+2) Redo => Alt + E
+
+3) Paste => ctrl + U
+
+4) Copy => Alt + ^/6
+
+5) Cut => Ctrl + k
+
+6) Rename => ctrl + (\/|)
+
+7) Search(where is) => ctrl + W
+
+8) Search (where next) => Alt + W
+
+9) Mark text => Alt + A
+
+10) Mouse support enable/disable => Alt + M
+
+11) Go to line[Lineno., collumn] => ctrl + _
+
+12) Inserting one file into another => ctrl + R
+	Type file_name[If file exist in the same Directory you are working on]
+		or 
+		Complete Location.
+
+13) Alt + (/) => TO jump to the Bottom of the text.
+
