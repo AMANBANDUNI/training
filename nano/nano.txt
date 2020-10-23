@@ -16,16 +16,26 @@ Nano Editor Commands:
 
 8) Search (where next) => Alt + W
 
-9) Mark text => Alt + A
+9) ctrl + O => To save a file
 
-10) Mouse support enable/disable => Alt + M
+10) ctrl + X => To exit editor.
 
-11) Go to line[Lineno., collumn] => ctrl + _
+11) Mark text => Alt + A
 
-12) Inserting one file into another => ctrl + R
+12) Mouse support enable/disable => Alt + M
+
+13) Go to line[Lineno., collumn] => ctrl + _
+
+14) Inserting one file into another => ctrl + R
 	Type file_name[If file exist in the same Directory you are working on]
 		or 
 		Complete Location.
 
-13) Alt + (/) => TO jump to the Bottom of the text.
+15) Alt + (/) => TO jump to the Bottom of the text.
+
+16) alt + \ =>  move curson to top
+
+ 
+
+5. alt + \ - move curson to top
 
