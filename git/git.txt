@@ -26,6 +26,10 @@ Basic Git Commands through linux shell:
 
 9) git rm file name/ git rm -r Directory => To Remove the files/Directories from the git repo.
 
-10) git status => To see the updation status of your git repo./ To check if any changes is done or not.
 
-11)  
+10) git rm *.extension_name* => To delete all the files of the repo of the same extension (eg. .txt)
+
+
+11) git status => To see the updation status of your git repo./ To check if any changes is done or not.
+
+12)  
