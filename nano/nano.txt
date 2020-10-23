@@ -24,7 +24,7 @@ Nano Editor Commands:
 
 12) Mouse support enable/disable => Alt + M
 
-13) Go to line[Lineno., collumn] => ctrl + _
+13) Go to line[Line no., collumn] => ctrl + _
 
 14) Inserting one file into another => ctrl + R
 	Type file_name[If file exist in the same Directory you are working on]
@@ -34,8 +34,3 @@ Nano Editor Commands:
 15) Alt + (/) => TO jump to the Bottom of the text.
 
 16) alt + \ =>  move curson to top
-
- 
-
-5. alt + \ - move curson to top
-
