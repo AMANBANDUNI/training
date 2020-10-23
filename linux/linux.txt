@@ -1,1 +1,33 @@
-sdkjfhklsjf
+Linux shell/Terminal Basic Commands:
+
+1) pwd => Print working Directory.
+
+(To print the Location you are currently working in )
+
+Example:
+ $ pwd
+/home/anoj/practice/training/linux
+
+
+2) cd => change Directory 
+
+(To change/shift to a diffrent Directory/path)
+
+Example: 
+
+
+3) ls => List
+
+( To get a list of all Folders and files of current Directory.)
+
+Example:
+
+
+4) ls -a => List -all
+
+( To get a list of all the Directories folders , files including the hidden Directories.)
+
+Example:
+
+
+5) 
