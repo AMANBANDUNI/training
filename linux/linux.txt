@@ -1,114 +1,193 @@
 Linux shell/Terminal Basic Commands:
 
-1) pwd => Print working Directory.
+
+1)  ctrl + alt + T - opens terminal.
+
+
+2) pwd => Print working Directory.
 
 (To print the Location you are currently working in )
 
 Example:
- $ pwd
-/home/anoj/practice/training/linux
+	 $ pwd
+	 /home/anoj/practice/training/linux
 
 
-2) cd => change Directory 
+
+3) cd => change Directory 
 
 (To change/shift to a diffrent Directory/path)
 
 Example: 
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ cd
-anoj@anoj-hp-probok-6460b:~$ ls
- ali_git   Documents   examples.desktop   nanobox-codeigniter  'New Folder'   practice   README.md   Templates
- Desktop   Downloads   Music              nanobox-rails         Pictures      Public     snap        Videos
-anoj@anoj-hp-probok-6460b:~$ cd practice/training/linux/
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
-anyfile.txt  linux.txt
+	 $ cd
+	 $ ls
+	 ali_git   Documents   examples.desktop   nanobox-codeigniter  'New Folder'   practice   README.md   Templates
+	 Desktop   Downloads   Music              nanobox-rails         Pictures      Public     snap        Videos
+	 $ cd practice/training/linux/
+	 $ ls
+	 anyfile.txt  linux.txt
 
 
-3) cd - => (To move to the last location/path)
 
-4) cd .. => (To move to the parent Directory of the current Dorectory)
+4) cd - => (To move to the last location/path)
 
 
-5) ls => List
+5) cd .. => (To move to the parent Directory of the current Dorectory)
+
+
+
+6) ls => List
 
 ( To get a list of all Folders and files of current Directory.)
 
 Example:
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
-anyfile.txt  linux.txt
+	 $ ls
+	 anyfile.txt  linux.txt
 
-anoj@anoj-hp-probok-6460b:~$ ls
- ali_git   Documents   examples.desktop   nanobox-codeigniter  'New Folder'   practice   README.md   Templates
- Desktop   Downloads   Music              nanobox-rails         Pictures      Public     snap        Videos
+	 $ ls
+	 ali_git   Documents   examples.desktop   nanobox-codeigniter  'New Folder'   practice   README.md   Templates
+	 Desktop   Downloads   Music              nanobox-rails         Pictures      Public     snap        Videos
 
 
 
-6) ls -a => List -all
+
+7) ls -a => List -all
 
 ( To get a list of all the Directories folders , files including the hidden Directories.)
 
 Example:
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls -a
-.  ..  anyfile.txt  linux.txt
+	 $ ls -a
+	 .  ..  anyfile.txt  linux.txt
 
 
 
-7) mkdir <directory/folder name>  <directory/folder name> <etc.> => makedirectory
+
+8) mkdir <directory/folder name>  <directory/folder name> <etc.> => makedirectory
 
 (To make a new  Directory/Directories)
 
 Example: 
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ mkdir myfirstDirectory
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
-anyfile.txt  linux.txt  myfirstDirectory
+	 $ mkdir myfirstDirectory
+	 $ ls
+	 anyfile.txt  linux.txt  myfirstDirectory
 
 
-8) rmdir <directory/folder name>  <directory/folder name> <etc.> => remove Directory
+
+
+9) rmdir <directory/folder name>  <directory/folder name> <etc.> => remove Directory
 
 (To Remove an empty Directory/Directories)
-Example:
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
-anyfile.txt  linux.txt  myfirstDirectory
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ rmdir myfirstDirectory/
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
-anyfile.txt  linux.txt
-
-
-
-9) touch => (To create an empty file)
 
 Example:
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ touch anyfile.txt
-anoj@anoj-hp-probok-6460b:~/practice/training/linux$ ls
-anyfile.txt  linux.txt
-
-
-10) copy => ctrl + shift + C
-
-11) paste => ctrl + shift + V
+	 $ ls
+	 anyfile.txt  linux.txt  myfirstDirectory
+	 $ rmdir myfirstDirectory/
+	 $ ls
+	 anyfile.txt  linux.txt
 
 
 
-12) rm => remove
+
+10) touch => (To create an empty file)
+
+Example:
+	 $ touch anyfile.txt
+	 $ ls
+	 anyfile.txt  linux.txt
+
+
+
+
+11) copy => ctrl + shift + C
+
+
+12) paste => ctrl + shift + V
+
+
+
+13) rm => remove
 (To remove file/files)
 
 
-13) rm -r => remove recurssively
+
+14) rm -r => remove recurssively
 (To remove a folder which containing files)
 
-14) rm -rf => remove forcefully
+
+15) rm -rf => remove forcefully
 (To Remove any file/files/Directory/Directories Forcefully)
 
 
-15) cp => copy
+
+16) cp => copy
 syntax=> cp <filename> location/path/paths
 (To copy files to different path/paths)
 
 
-16) cp -r => copy recurssively
+
+17) cp file1.txt file2.txt => It will copy data from file1.txt to file2.txt
+
+
+
+18) cp -r => copy recurssively
 syntax=> cp -r <Directoryname> location/path/paths
 (To copy a complete Directory to different path/paths)
 
 
-17) clear => (To clear screen)
 
-18) 
+19) mv <file_name> <file_name>  => It will move the data of the first file to the second file and deletes the first file.
+
+
+
+20) cat <file_name> => concatenate
+(show you the data of file.)
+
+
+21) cat >> <file_name> =>  It creates a text file and allow you to give some input.
+
+
+22) history => It will show you all Previously ran commands.
+
+
+23) uname => unix name
+(It will tell you about the name of the operating system)
+
+
+24) uname -r => It tells the current version of our os.
+
+25) uname -a => It tells the whole/all information about our Os.
+
+
+26) grep "any_text" <file_name> => It will highlight the number of selected text in the whole file.
+
+
+27) ls -l <file_name> => To see the permissions of the file. permissions like Read(4),write(2), execute(1).
+
+
+28) chmod <permissions as in numbers> <file(s)_name> => It will give read , write and execute permissions to admin
+ , group and also to a guest , according to the sequence of the number.
+
+Execute	 = 1
+write	 = 2
+Read	 = 4
+
+Example: 
+	$ ls -l example.txt 
+	-rw-r--r-- 1 anoj anoj 0 Oct 22 14:37 example.txt
+	$ chmod 764 example.txt 
+	$ ls -l example.txt 
+	-rwxrw-r-- 1 anoj anoj 0 Oct 22 14:37 example.txt
+ 
+
+
+29) head <file_name> => It will print first 10 lines of the files.
+
+30) tail <file_name> => It will print last 10 lines of the files.
+
+31) less <file_name> => It will allow us to view file's text without opening editor.
+
+32) clear => (To clear screen)
+
+33) exit - exit from terminal
+
+
