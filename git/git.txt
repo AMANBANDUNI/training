@@ -16,40 +16,55 @@ Basic Git Commands through linux shell:
 	Example: a) git add linux.txt => this will add a txtfile named linux.txt.
 		 b) git add linux git => this will add 2 folders named linux, git respectively to git repo.
 
-5) git commit -m "" => To commit changes to the git repo with the description mention in the double quotes.
+5) git add . => It will add all the files in the staging area.
+
+6) git add *.txt => It will add all files with .txt extension into the staging area from present directory.
+
+7) git rm --cached <file-name> => deletes that file from the staging area.
+
+8) git rm --cached *.txt => deletes all the file with .txt extension from the staging area.
+
+
+
+9) git commit -m "" => To commit changes to the git repo with the description mention in the double quotes.
                       / it saves the file present in staging area to the local repository with user defined message.
  
 
-6) git remote add origin <url> => This will link the remote github repository link to the current repo.
+10) git remote add origin <url> => This will link the remote github repository link to the current repo.
 				  /It will create a new remote repository known as origin at the respective url.
 
 
-7) git push -u origin main => To push the changes of the current repo to the cloud repo of github.
+11) git push -u origin master => To push the changes of the current repo to the cloud repo of github.
+				/It will push the commit to origin from the master directory(locally stored).
 
    git push 
 
    git push origin <brnch_name>
 
-8) git clone <url> => To make a clone of a remote repo in your machine.
+12) git clone <url> => To make a clone/copy of a remote repo in your machine.
 
-9) git rm file name/ git rm -r Directory => To Remove the files/Directories from the git repo.
-
-
-10) git rm *.extension_name* => To delete all the files of the repo of the same extension (eg. .txt)
+13) git rm file name/ git rm -r Directory => To Remove the files/Directories from the git repo.
 
 
-11) git status => To see the updation status of your git repo./ To check if any changes is done or not.
-
-12)  git pull => To Pull all the updates and changes which other user made in the remote repo.
-
-13) git branch => It tells, you are in which branch.
-
-14) git branch <branch_ name> => To make a new Branch.
+14) git rm *.extension_name* => To delete all the files of the repo of the same extension (eg. .txt)
 
 
-15) git branch -d <local_branch_name> => To delete a branch Locally/To delete a branch from local repo..
+15) git status => To see the updation status of your git repo./ To check if any changes is done or not.
+		 / It returns the current status of the repository.
 
-16) gti push origin --delete remote <branch_name>
+16)  git pull => To Pull all the updates and changes which other user made in the remote repo.
+
+17) git branch => It tells, you are in which branch.
+
+18) git branch <branch_ name> => To make a new Branch.
+
+19) git checkout <branch_name> => switches from current branch to <branch_name> branch.
 
 
-17) 
+20) git branch -d <local_branch_name> => To delete a branch Locally/To delete a branch from local repo..
+
+21) gti push origin --delete remote <branch_name>
+
+
+21) git log => It will show commit history for a repository.
+
