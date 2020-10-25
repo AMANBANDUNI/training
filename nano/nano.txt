@@ -34,3 +34,7 @@ Nano Editor Commands:
 15) Alt + (/) => TO jump to the Bottom of the text.
 
 16) alt + \ =>  move curson to top
+
+17) ctrl + c => cancedl opreration.
+
+18) ctrl + x => exit the nano editor.
