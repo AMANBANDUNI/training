@@ -6,7 +6,7 @@ Its my way or skyway.
 
 
 
-1)  ctrl + alt + T - opens terminal.
+1)  ctrl + alt + T => opens terminal.
 
 
 2) pwd => Print working Directory.
