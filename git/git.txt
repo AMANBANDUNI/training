@@ -16,11 +16,18 @@ Basic Git Commands through linux shell:
 		 b) git add linux git => this will add 2 folders named linux, git respectively to git repo.
 
 5) git commit -m "" => To commit changes to the git repo with the description mention in the double quotes.
+                      / it saves the file present in staging area to the local repository with user defined message.
+ 
 
 6) git remote add origin <url> => This will link the remote github repository link to the current repo.
+				  /It will create a new remote repository known as origin at the respective url.
 
-7) git push origin main => To push the changes of the current repo to the cloud repo of github.
 
+7) git push -u origin main => To push the changes of the current repo to the cloud repo of github.
+
+   git push 
+
+   git push origin <brnch_name>
 
 8) git clone <url> => To make a clone of a remote repo in your machine.
 
@@ -39,3 +46,6 @@ Basic Git Commands through linux shell:
 14) git branch <branch_ name> => To make a new Branch.
 
 
+15) git branch -d <local_branch_name> => To delete a branch Locally/To delete a branch from local repo..
+
+16) gti push origin --delete remote <branch_name>
