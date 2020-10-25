@@ -1,9 +1,5 @@
 Linux shell/Terminal Basic Commands:
 
-Just Trying something.
-what the hell are you trying.??
-Its my way or skyway.
-
 
 
 1)  ctrl + alt + T => opens terminal.
