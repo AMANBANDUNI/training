@@ -61,9 +61,17 @@ Example:
 	 .  ..  anyfile.txt  linux.txt
 
 
+8) ls -ld .* / ls -ald .* => To list out only hidden files/directories with their permissions.
+
+Example:
+	$ ls -ld .*
+	drwxr-xr-x 6 anoj anoj 4096 Oct 25 19:48 .
+	drwxr-xr-x 5 anoj anoj 4096 Oct 25 20:13 ..
+	drwxr-xr-x 8 anoj anoj 4096 Oct 25 23:37 .git
 
 
-8) mkdir <directory/folder name>  <directory/folder name> <etc.> => makedirectory
+
+9) mkdir <directory/folder name>  <directory/folder name> <etc.> => makedirectory
 
 (To make a new  Directory/Directories)
 
@@ -75,7 +83,7 @@ Example:
 
 
 
-9) rmdir <directory/folder name>  <directory/folder name> <etc.> => remove Directory
+10) rmdir <directory/folder name>  <directory/folder name> <etc.> => remove Directory
 
 (To Remove an empty Directory/Directories)
 
@@ -89,7 +97,7 @@ Example:
 
 
 
-10) touch => (To create an empty file)
+11) touch => (To create an empty file)
 
 Example:
 	 $ touch anyfile.txt
@@ -99,73 +107,73 @@ Example:
 
 
 
-11) copy => ctrl + shift + C
+12) copy => ctrl + shift + C
 
 
-12) paste => ctrl + shift + V
+13) paste => ctrl + shift + V
 
 
 
-13) rm => remove
+14) rm => remove
 (To remove file/files)
 
 
 
-14) rm -r => remove recurssively
+15) rm -r => remove recurssively
 (To remove a folder which containing files)
 
 
-15) rm -rf => remove forcefully
+16) rm -rf => remove forcefully
 (To Remove any file/files/Directory/Directories Forcefully)
 
 
 
-16) cp => copy
+17) cp => copy
 syntax=> cp <filename> location/path/paths
 (To copy files to different path/paths)
 
 
 
-17) cp file1.txt file2.txt => It will copy data from file1.txt to file2.txt
+18) cp file1.txt file2.txt => It will copy data from file1.txt to file2.txt
 
 
 
-18) cp -r => copy recurssively
+19) cp -r => copy recurssively
 syntax=> cp -r <Directoryname> location/path/paths
 (To copy a complete Directory to different path/paths)
 
 
 
-19) mv <file_name> <file_name>  => It will move the data of the first file to the second file and deletes the first file.
+20) mv <file_name> <file_name>  => It will move the data of the first file to the second file and deletes the first file.
 
 
 
-20) cat <file_name> => concatenate
+21) cat <file_name> => concatenate
 (show you the data of file.)
 
 
-21) cat >> <file_name> =>  It creates a text file and allow you to give some input.
+22) cat >> <file_name> =>  It creates a text file and allow you to give some input.
 
 
-22) history => It will show you all Previously ran commands.
+23) history => It will show you all Previously ran commands.
 
 
-23) uname => unix name
+24) uname => unix name
 (It will tell you about the name of the operating system)
 
 
-24) uname -r => It tells the current version of our os.
+25) uname -r => It tells the current version of our os.
 
-25) uname -a => It tells the whole/all information about our Os.
-
-
-26) grep "any_text" <file_name> => It will highlight the number of selected text in the whole file.
+26) uname -a => It tells the whole/all information about our Os.
 
 
-27) ls -l <file_name> => To see the permissions of the file. permissions like Read(4),write(2), execute(1).
+27) grep "any_text" <file_name> => It will highlight the number of selected text in the whole file.
 
 
-28) chmod <permissions as in numbers> <file(s)_name> => It will give read , write and execute permissions to admin
+28) ls -l <file_name> => To see the permissions of the file. permissions like Read(4),write(2), execute(1).
+
+
+29) chmod <permissions as in numbers> <file(s)_name> => It will give read , write and execute permissions to admin
  , group and also to a guest , according to the sequence of the number.
 
 Execute	 = 1
@@ -181,16 +189,16 @@ Example:
  
 
 
-29) head <file_name> => It will print first 10 lines of the files.
+30) head <file_name> => It will print first 10 lines of the files.
 
-30) tail <file_name> => It will print last 10 lines of the files.
+31) tail <file_name> => It will print last 10 lines of the files.
 
-31) less <file_name> => It will allow us to view file's text without opening editor.
+32) less <file_name> => It will allow us to view file's text without opening editor.
 
-32) clear => (To clear screen)
+33) clear => (To clear screen)
 
-33) exit => exit from terminal
+34) exit => exit from terminal
 
-34) scp text.txt beryl@192.168.43.103:home/beryl/desktop => It will copy the text file from pwd to host with given IP address at specified directory.
+35) scp text.txt beryl@192.168.43.103:home/beryl/desktop => It will copy the text file from pwd to host with given IP address at specified directory.
 
 
