@@ -66,5 +66,5 @@ Basic Git Commands through linux shell:
 21) gti push origin --delete remote <branch_name>
 
 
-21) git log => It will show commit history for a repository.
+22) git log => It will show commit history for a repository.
 
