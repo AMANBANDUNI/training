@@ -8,6 +8,7 @@ Basic Git Commands through linux shell:
 3) echo "# description" >>README.md => To add a README.md file with description.
 
 3) git init => To Initiallize git.
+		/creates empty local repository in the present directory.
 
 
 4) git add => To add files/folders in the remote git repository| 
@@ -49,3 +50,6 @@ Basic Git Commands through linux shell:
 15) git branch -d <local_branch_name> => To delete a branch Locally/To delete a branch from local repo..
 
 16) gti push origin --delete remote <branch_name>
+
+
+17) 
