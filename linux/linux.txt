@@ -1,6 +1,6 @@
 Linux shell/Terminal Basic Commands:
 
-
+bangbang
 
 1)  ctrl + alt + T => opens terminal.
 
