@@ -191,4 +191,6 @@ Example:
 
 33) exit => exit from terminal
 
+34) scp text.txt beryl@192.168.43.103:home/beryl/desktop => It will copy the text file from pwd to host with given IP address at specified directory.
+
 
