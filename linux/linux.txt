@@ -189,6 +189,6 @@ Example:
 
 32) clear => (To clear screen)
 
-33) exit - exit from terminal
+33) exit => exit from terminal
 
 
