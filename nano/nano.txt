@@ -1,40 +1,39 @@
 Nano Editor Commands:
 
-1) Undo => Alt + U
+1) Alt + U		 =>				 Undo
 
-2) Redo => Alt + E
+2) Alt + E		 =>				 Redo
 
-3) Paste => ctrl + U
+3) ctrl + U		 =>				 Paste
 
-4) Copy => Alt + ^/6
+4) Alt + ^/6		 =>				 Copy
 
-5) Cut => Ctrl + k
+5) Ctrl + k		 =>				 Cut
 
-6) Rename => ctrl + (\/|)
+6) ctrl + (\/|)		 =>				 Rename
 
-7) Search(where is) => ctrl + W
+7) ctrl + W		 =>				 Search(where is)
 
-8) Search (where next) => Alt + W
+8) Alt + W		 =>				 Search (where next)
 
-9) ctrl + O => To save a file
+9) ctrl + O		 =>				 To save a file
 
-10) ctrl + X => To exit editor.
+10) ctrl + X		 =>				 To exit editor.
 
-11) Mark text => Alt + A
+11)  Alt + A		 =>				 Mark text
 
-12) Mouse support enable/disable => Alt + M
+12)  Alt + M		 =>				 Mouse support enable/disable
 
-13) Go to line[Line no., collumn] => ctrl + _
+13)  ctrl + _		 =>				 Go to line[Line no., collumn]
 
-14) Inserting one file into another => ctrl + R
-	Type file_name[If file exist in the same Directory you are working on]
-		or 
-		Complete Location.
+14)  ctrl + R		 =>				 Inserting one file into another
+							 Type file_name[If file exist in the same Directory you are working on]
+							 or 
+							 Complete Location.
 
-15) Alt + (/) => TO jump to the Bottom of the text.
+15) Alt + (/)		 =>				 TO jump to the Bottom of the text.
 
-16) alt + \ =>  move curson to top
+16) alt + \		 =>				 move cursor to top
 
-17) ctrl + c => cancedl opreration.
+17) ctrl + c		 =>				 cancel opreration.
 
-18) ctrl + x => exit the nano editor.
