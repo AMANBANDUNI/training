@@ -1,7 +1,7 @@
 Linux shell/Terminal Basic Commands:
 
 
-1)  ctrl + alt + T - opens terminal.
+1)  ctrl + alt + T => opens terminal.
 
 
 2) pwd => Print working Directory.
