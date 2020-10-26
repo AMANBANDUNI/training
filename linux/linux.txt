@@ -36,6 +36,7 @@ Example:
 
 5) cd .. => (To move to the parent Directory of the current Dorectory)
 
+	Note you can go back to any no. of parent directory, just repeat the dots after forward slash. syntax: cd ../.. 
 
 
 6) ls => List
@@ -143,6 +144,12 @@ syntax=> cp <filename> location/path/paths
 syntax=> cp -r <Directoryname> location/path/paths
 (To copy a complete Directory to different path/paths)
 
+   cp -i <file_name_1> <file_name_2> => To force cp(copy) to prompt for confirmation use the -i option.
+  
+
+   cp -u <file_name_1> <file_name_2> => If you want to copy the file onlyof it is newer that the destination, use the -u option. 
+ 
+   [Here, file_name_1 = whose data you want to copy , file_name_2 = where you want to copy the data]   
 
 
 20) mv <file_name> <file_name>  => It will move the data of the first file to the second file and deletes the first file.
@@ -202,4 +209,4 @@ Example:
 
 35) scp text.txt beryl@192.168.43.103:home/beryl/desktop => It will copy the text file from pwd to host with given IP address at specified directory.
 
-
+36) man <command_name>/ <app/package_name> => manual (To get the manual)
