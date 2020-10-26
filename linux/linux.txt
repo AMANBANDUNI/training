@@ -1,5 +1,5 @@
 Linux shell/Terminal Basic Commands:
-
+THESE ARE SOME COMMANDS WHICH WILL BE VERY HELPFULL.
 
 
 1)  ctrl + alt + T => opens terminal.
