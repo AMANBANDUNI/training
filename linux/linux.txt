@@ -1,6 +1,6 @@
 Linux shell/Terminal Basic Commands:
 
-Just an example: 1
+
 
 1)  ctrl + alt + T => opens terminal.
 
