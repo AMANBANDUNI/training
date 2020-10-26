@@ -68,3 +68,6 @@ Basic Git Commands through linux shell:
 
 22) git log => It will show commit history for a repository.
 
+23) git push --set-upstream origin <new_branch_name> => To first time push the changes of newbranch./To set newbranch to upstream origin.
+
+24) 
