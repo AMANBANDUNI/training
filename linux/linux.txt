@@ -1,5 +1,6 @@
 Linux shell/Terminal Basic Commands:
 THESE ARE SOME COMMANDS WHICH WILL BE VERY HELPFULL.
+This is line 3 / The changes i am making in newbranch is just for practice.
 
 
 1)  ctrl + alt + T => opens terminal.
