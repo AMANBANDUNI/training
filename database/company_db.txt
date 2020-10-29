@@ -1,0 +1,263 @@
+								# Company Database
+
+1) CREATE DATABASE:
+
+postgres=# CREATE DATABASE Company WITH OWNER aman;
+CREATE DATABASE
+
+
+2) Enter Database:
+
+\c company
+
+
+3) Create Table for Different Entities(Like employee,branch,client,works_with,branch_supplier):
+
+	a) Creating employee Table:
+		company=# CREATE TABLE employee(emp_id INT PRIMARY KEY,first_name VARCHAR(20) NOT NULL,
+		last_name VARCHAR(20),dob DATE , gender CHAR(1) NOT NULL,salary MONEY , super_id INT , branch_id INT);
+		CREATE TABLE
+
+		company=#  SELECT * FROM employee;
+			 emp_id | first_name | last_name | dob | gender | salary | super_id | branch_id 
+			--------+------------+-----------+-----+--------+--------+----------+-----------
+			(0 rows)
+
+
+
+	b) Creating Branch Table:
+		company=# CREATE TABLE branch(branch_id SERIAL PRIMARY KEY, branch_name VARCHAR(30) NOT NULL,
+		mgr_id INT,mgr_start_date DATE, FOREIGN KEY (mgr_id) REFERENCES employee(emp_id) ON DELETE SET NULL);
+		CREATE TABLE
+
+		company=#  SELECT * FROM branch;
+			 branch_id | branch_name | mgr_id | mgr_start_date 
+			-----------+-------------+--------+----------------
+			(0 rows)
+
+	
+	#Adding Relation to Employee Table.	
+	company=# ALTER TABLE employee ADD FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL;
+	ALTER TABLE
+	company=# ALTER TABLE employee ADD FOREIGN KEY(super_id) REFERENCES employee(emp_id) ON DELETE SET NULL;
+	ALTER TABLE
+
+	c) Creating client Table:
+		company=# CREATE TABLE client(client_id INT PRIMARY KEY,client_name VARCHAR(30)NOT NULL,branch_id INT,
+		FOREIGN KEY (branch_id)REFERENCES branch(branch_id) ON DELETE SET NULL);
+		CREATE TABLE
+
+		company=#  SELECT * FROM client;
+		 client_id | client_name | branch_id 
+		-----------+-------------+-----------
+		(0 rows)
+
+	
+	
+	d) Creating works_with table:
+		company=# CREATE TABLE works_with(emp_id INT, client_id INT, total_sales MONEY,PRIMARY KEY(emp_id,client_id),
+		FOREIGN KEY(emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE,FOREIGN KEY(client_id) REFERENCES client(client_id)
+		ON DELETE CASCADE);
+		CREATE TABLE
+		
+		company=#  SELECT * FROM works_with;
+		 emp_id | client_id | total_sales 
+		--------+-----------+-------------
+		(0 rows)
+
+
+
+	e) Creating branch_supply table:
+		company=# CREATE TABLE branch_supplier(branch_id INT,supplier_name VARCHAR(40), supply_type VARCHAR(30),
+		PRIMARY KEY(branch_id,supplier_name),FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE CASCADE);
+		CREATE TABLE
+
+		company=#  SELECT * FROM branch_supplier;
+		 branch_id | supplier_name | supply_type 
+		-----------+---------------+-------------
+		(0 rows)
+
+
+4) INSERTING info./Data:
+
+a) For corporate branch:
+
+company=# INSERT INTO employee VALUES(100,'SHIVAM','SHARMA','1967-11-17','M',250000,NULL,NULL);
+INSERT 0 1
+company=# INSERT INTO branch VALUES(1,'CORPORATE',100,'2006-02-09');
+INSERT 0 1
+company=# UPDATE employee SET branch_id = 1 WHERE emp_id = 100;
+UPDATE 1
+
+company=# INSERT INTO employee VALUES(101,'NEHA','RAWAT','1961-05-11','F',110000,100,1);
+INSERT 0 1
+
+
+b) For Scranton branch:
+
+company=# INSERT INTO employee VALUES(102,'MANISH','SWAMI','1964-03-15','M',75000,100,NULL);
+INSERT 0 1
+company=# INSERT INTO branch VALUES(2,'Scanton',102,'1992-04-06');
+INSERT 0 1
+company=# UPDATE employee SET branch_id =2 WHERE emp_id=102;
+UPDATE 1
+
+company=# INSERT INTO employee VALUES(103,'ANJALI','MIGLANI','1971-06-25','F',63000,102,2);
+INSERT 0 1
+company=# INSERT INTO employee VALUES(104,'LANIKA','KAPOOR','1980-02-05','F',55000,102,2);
+INSERT 0 1
+company=# INSERT INTO employee VALUES(105,'AMRIT','MISHRA','1958-02-19','M',69000,102,2);
+INSERT 0 1
+
+c) For Stanford branch:
+
+company=# INSERT INTO employee VALUES(106,'DEEPAK','YADAV','1969-09-05','M',78000,100,NULL);
+INSERT 0 1
+company=# INSERT INTO branch VALUES(3,'STANFORD',106,'1998-02-13');
+INSERT 0 1
+company=# UPDATE employee SET branch_id =3 WHERE emp_id=106;
+UPDATE 1
+company=# INSERT INTO employee VALUES(107,'ANKIT','BOHRA','1973-07-22','M',65000,106,3);
+INSERT 0 1
+company=# INSERT INTO employee VALUES(108,'SHIKHAR','JAISWAL','1978-10-01','M',71000,106,3);
+INSERT 0 1
+
+d) For branch_supplier table:
+
+company=# INSERT INTO branch_supplier VALUES(2,'HAMMER HILL','PAPER');
+INSERT 0 1
+company=# INSERT INTO branch_supplier VALUES(2,'UNI-BALL','WRITING UTENSILS');
+INSERT 0 1
+company=# INSERT INTO branch_supplier VALUES(3,'PATRIOT PAPER','PAPER');
+INSERT 0 1
+company=# INSERT INTO branch_supplier VALUES(2,'JT FORMS&LABELS','CUSTOM FORMS');
+INSERT 0 1
+company=# INSERT INTO branch_supplier VALUES(3,'UNI-BALL','WRITING UTENSILS');
+INSERT 0 1
+company=# INSERT INTO branch_supplier VALUES(3,'HAMMER HILL','PAPER');
+INSERT 0 1
+company=# INSERT INTO branch_supplier VALUES(3,'STAMFORD LABELS','CUSTOM FORMS');
+INSERT 0 1
+
+
+e) For client table:
+
+company=# INSERT INTO client VALUES(400,'DUNMORE HIGHSCHOOL',2);
+INSERT 0 1
+company=# INSERT INTO client VALUES(401,'LACKAWANA COUNTRY',2);
+INSERT 0 1
+company=# INSERT INTO client VALUES(402,'FEDEX',3);
+INSERT 0 1
+company=# INSERT INTO client VALUES(403,'JOHN DALY LAW LLC',3);
+INSERT 0 1
+company=# INSERT INTO client VALUES(404,'SCRANTON WHITEPAGES',2);
+INSERT 0 1
+company=# INSERT INTO client VALUES(405,'TIMES NEWSPAPER',3);
+INSERT 0 1
+company=# INSERT INTO client VALUES(406,'FEDEX',2);
+INSERT 0 1
+
+
+f) For Works_with table:
+
+company=# INSERT INTO works_with VALUES(105,400,55000);
+INSERT 0 1
+company=# INSERT INTO works_with VALUES(102,401,267000);
+INSERT 0 1
+company=# INSERT INTO works_with VALUES(108,402,22500);
+INSERT 0 1
+company=# INSERT INTO works_with VALUES(107,403,5000);
+INSERT 0 1
+company=# INSERT INTO works_with VALUES(108,403,12000);
+INSERT 0 1
+company=# INSERT INTO works_with VALUES(105,404,33000);
+INSERT 0 1
+company=# INSERT INTO works_with VALUES(107,405,26000);
+INSERT 0 1
+company=# INSERT INTO works_with VALUES(102,406,15000);
+INSERT 0 1
+company=# INSERT INTO works_with VALUES(105,406,130000);
+INSERT 0 1
+
+
+
+
+
+5) VIEW TABLES:
+
+
+	a) employee table:
+
+company=# SELECT * FROM employee;
+ emp_id | first_name | last_name |    dob     | gender |   salary    | super_id | branch_id 
+--------+------------+-----------+------------+--------+-------------+----------+-----------
+    100 | SHIVAM     | SHARMA    | 1967-11-17 | M      | ₹250,000.00 |          |         1
+    101 | NEHA       | RAWAT     | 1961-05-11 | F      | ₹110,000.00 |      100 |         1
+    102 | MANISH     | SWAMI     | 1964-03-15 | M      |  ₹75,000.00 |      100 |         2
+    103 | ANJALI     | MIGLANI   | 1971-06-25 | F      |  ₹63,000.00 |      102 |         2
+    104 | LANIKA     | KAPOOR    | 1980-02-05 | F      |  ₹55,000.00 |      102 |         2
+    105 | AMRIT      | MISHRA    | 1958-02-19 | M      |  ₹69,000.00 |      102 |         2
+    106 | DEEPAK     | YADAV     | 1969-09-05 | M      |  ₹78,000.00 |      100 |         3
+    107 | ANKIT      | BOHRA     | 1973-07-22 | M      |  ₹65,000.00 |      106 |         3
+    108 | SHIKHAR    | JAISWAL   | 1978-10-01 | M      |  ₹71,000.00 |      106 |         3
+(9 rows)
+
+
+
+	b) branch table:
+
+company=# SELECT * FROM branch;
+ branch_id | branch_name | mgr_id | mgr_start_date 
+-----------+-------------+--------+----------------
+         1 | CORPORATE   |    100 | 2006-02-09
+         2 | Scranton    |    102 | 1992-04-06
+         3 | STANFORD    |    106 | 1998-02-13
+(3 rows)
+
+
+	c) client table:
+
+company=# SELECT * FROM client;
+ client_id |     client_name     | branch_id 
+-----------+---------------------+-----------
+       400 | DUNMORE HIGHSCHOOL  |         2
+       401 | LACKAWANA COUNTRY   |         2
+       402 | FEDEX               |         3
+       403 | JOHN DALY LAW LLC   |         3
+       404 | SCRANTON WHITEPAGES |         2
+       405 | TIMES NEWSPAPER     |         3
+       406 | FEDEX               |         2
+(7 rows)
+
+
+	d) branch_supplier table:
+
+company=# SELECT * FROM branch_supplier;
+ branch_id |  supplier_name  |   supply_type    
+-----------+-----------------+------------------
+         2 | HAMMER HILL     | PAPER
+         2 | UNI-BALL        | WRITING UTENSILS
+         3 | PATRIOT PAPER   | PAPER
+         2 | JT FORMS&LABELS | CUSTOM FORMS
+         3 | UNI-BALL        | WRITING UTENSILS
+         3 | HAMMER HILL     | PAPER
+         3 | STAMFORD LABELS | CUSTOM FORMS
+(7 rows)
+
+
+	e) works_with:
+
+company=# SELECT * FROM works_with;
+ emp_id | client_id | total_sales 
+--------+-----------+-------------
+    105 |       400 |  ₹55,000.00
+    102 |       401 | ₹267,000.00
+    108 |       402 |  ₹22,500.00
+    107 |       403 |   ₹5,000.00
+    108 |       403 |  ₹12,000.00
+    105 |       404 |  ₹33,000.00
+    107 |       405 |  ₹26,000.00
+    102 |       406 |  ₹15,000.00
+    105 |       406 | ₹130,000.00
+(9 rows)
+
