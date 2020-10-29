@@ -149,7 +149,8 @@ syntax=> cp -r <Directoryname> location/path/paths
 
    cp -u <file_name_1> <file_name_2> => If you want to copy the file onlyof it is newer that the destination, use the -u option. 
  
-   [Here, file_name_1 = whose data you want to copy , file_name_2 = where you want to copy the data]   
+   [Here, file_name_1 = whose data you want to copy , file_name_2 = where you want to copy the data]
+   [Note: If you want to copy whole Directory to another then also use flag -r example:- cp -ri  or cp -ru ]   
 
 
 20) mv <file_name> <file_name>  => It will move the data of the first file to the second file and deletes the first file.
@@ -210,3 +211,11 @@ Example:
 35) scp text.txt beryl@192.168.43.103:home/beryl/desktop => It will copy the text file from pwd to host with given IP address at specified directory.
 
 36) man <command_name>/ <app/package_name> => manual (To get the manual)
+
+37) whoami => It gives you the username in linux shell.
+
+38) su - <username> => To change to different user.
+
+39) su - => To change to the root user.
+
+40) exit => To exit.
