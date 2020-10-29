@@ -1,0 +1,579 @@
+				#PostgresQL
+		is a open source object-relational Database management system.
+
+1) Installation:
+
+	$ sudo apt update
+	$ sudo apt install postgresql postgresql-contrib
+
+
+2) Using Postgresql Roles and Databases
+
+=> Swithcing over to the prosgre account
+   $ sudo -i -u postgres   /   $ sudo -su postgres
+   $ psql
+   OR (we can do that in one step)
+   $ sudo -u postgres psql
+
+3) \q => To exit.
+
+4) # Creating a New User(A new user for postgres) :
+
+	Note: The Default user/ username is postgres.
+
+	Syntax: CREATE USER <user_name> WITH PASSWORD '<password>'; 
+
+
+5) # Set previledges to new user.
+	
+	Note: There is no previledges set to this user , so we have to provide priviledges to this user. 
+		/To check previledges of default user postgres (Type : \du).
+	Syntax: ALTER USER <user_name> WITH <previledge name> <previledge name> .. ;
+
+Example: ALTER USER <user_name> WITH SUPERUSER CREATEROLE CREATEDB ;
+
+	
+
+6) # Delete/Remove a User: 
+
+Syntax: DROP USER <user_name>;
+		or
+	DROP USER IF EXISTS <user_name>;
+
+
+7.1) # Create Database & also specify owner of the DB as user.
+
+Syntax: CREATE DATABASE <DB_name> WITH OWNER <user_name> ENCODING = 'UTF8' LC_COLLATE = 'en_IN' LC_CTYPE = 'en_IN';
+
+
+
+7.2) # Creating a New Database:
+
+Syntax: CREATE DATABASE <database name>;
+Example: CREATE DATABASE mydb1;
+
+
+
+8) \l => To list_out/print the existing databases.
+
+9) \du => To list_out/print all the users present in the postgresql with their previldges.
+
+10) \! clear => To clear the postgres screen.
+
+11) \c <database_name> => To connect/select the desired DB.
+
+
+
+12) ls /etc/postgresql/9.5<version>/main/ => To locate the postgresql configuration file.
+
+
+
+13) # How to check whether postgres is running or not/ Ho to check status of postgresql:
+
+	service postgres => list out all the services.
+
+Example:	$ service  postgresql
+
+Usage: /etc/init.d/postgresql {start|stop|restart|reload|force-reload|status} [version ..]
+
+example 2: service postgres status
+
+		
+
+9) # Postgres Using Linux shell => we can directly use commands/queries of postgres using linux shell.
+
+
+	#Syntax of creating user:
+[createuser --help] --> For any help.
+
+createuser -P <user_name>
+
+
+	#Syntax of creating DB
+
+createdb <DB_name> -O <user_name>
+
+
+	#Connecting to DB from local Host.
+$ psql -h localhost -p 5432 -U <user_name> <DB_name> 
+
+p --> port , 5432 --> default port address , -U --> User 
+
+
+	#Deleting a DB from Terminal/linux shell.
+dropdb -h localhost -p 5432 -U <user_name> <DB_name>
+			or
+dropdb <DB_name>
+
+
+10) # Check the Table and Schema in the system Catalog table.
+
+SELECT * FROM pg_catalog.pg_tables;
+
+
+
+11) \d => To list down all the table in all attached database.
+
+    \d <table_name> => To describe each table.
+
+
+
+11)	 # Creating Table : 
+
+Syntax: CREATE TABLE TABLE_NAME(COLUMN1 datatype,COLUMN2 datatype,....,COLUMN3 datatype, PRIMARY KEY(One or more columns));
+
+Example:
+mydb1=#  CREATE TABLE COMPANY( ID INT PRIMARY KEY NOT NULL, NAME TEXT NOT NULL, AGE INT NOT NULL, ADDRESS CHAR(50), SALARY REAL);
+
+mydb1=# SELECT * FROM DEPartment;
+ id | dept | emp_id 
+----+------+--------
+(0 rows)
+
+
+
+12) # DROP:
+
+Syntax:  DROP TABLE <table_name>;
+
+Example: 
+mydb1=# DROP TABLE COMPANY, DEPARTMENT;
+DROP TABLE
+mydb1=# 
+
+
+
+13) # SCHEMA:
+
+Syntax: CREATE SCHEMA <name>
+
+Example: CREATE SCHEMA myschema;
+
+
+	a) Create table in Schema.
+Syntax: CREATE TABLE myschema.company(ID INT NOT NULL , NAME VARCHAR (20) , AGE INT NOT NULL , ADDRESS CHAR (25), SALARY DECIMAL (18,2) , PRIMARY KEY (ID) );
+
+
+	B) To verify table.
+SELECT * FROM myschema.company;
+
+	c) Drop Schema: 
+		
+		a.1) To DROP schema if it is empty.
+Syntax: DROP SCHEMA myschema;
+
+		a.2) To DROP a schema including all contained objects.
+Syntax: DROP SCHEMA myschema CASCADE;
+
+
+
+14) INSERT QUERY
+
+Syntax: INSERT INTO TABLE_NAME (column1, column2, column3,...columnN) VALUES (value1, value2, value3,...valueN);
+
+							or
+	INSERT INTO TABLE_NAME VALUES (value1,value2,value3,...valueN);
+
+Example: INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY,JOIN_DATE) VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00, '2007-12-13' ), (5, 'David', 27, 'Texas', 85000.00, '2007-12-13');
+
+
+
+15) SELECT Statement:
+
+Syntax: SELECT column1, column2, columnN FROM table_name;
+				or
+	SELECT * FROM table_name;
+
+Example:
+
+mydb1=# SELECT ID , NAME FROM company;
+ id | name  
+----+-------
+  1 | Paul
+  2 | Allen
+  3 | Teddy
+  4 | Mark
+  5 | David
+(5 rows)
+
+
+
+
+mydb1=# SELECT * FROM COMPANY;
+ id | name  | age |                      address                       | salary | join_date  
+----+-------+-----+----------------------------------------------------+--------+------------
+  1 | Paul  |  32 | California                                         |  20000 | 2001-07-13
+  2 | Allen |  25 | Texas                                              |        | 2007-12-13
+  3 | Teddy |  23 | Norway                                             |  20000 | 
+  4 | Mark  |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+  5 | David |  27 | Texas                                              |  85000 | 2007-12-13
+(5 rows)
+
+
+
+16) Operators in Postgresql 
+
+	Arithmetic operators
+	Comparison operators
+	Logical operators
+	Bitwise operators
+
+
+17) Expressions : 
+
+Syntax: SELECT column1, column2, columnN FROM table_name WHERE [CONDITION | EXPRESSION];
+
+
+	a) Boolean Expressions:
+Example:  SELECT * FROM COMPANY WHERE SALARY = 10000;
+
+	b) Numeric Expression
+Syntax : SELECT numerical_expression as  OPERATION_NAME [FROM table_name WHERE CONDITION] ;
+
+Example: 
+SELECT (15 + 6) AS ADDITION ;
+mydb1=# SELECT (15+6) AS Addition;
+ addition 
+----------
+       21
+(1 row)
+
+
+
+mydb1=# SELECT COUNT(*) AS RECORDS FROM COMPANY;
+ records 
+---------
+       5
+(1 row)
+
+
+
+
+	c) Date Expression:
+
+Example:
+mydb1=# SELECT CURRENT_TIMESTAMP;
+               now                
+----------------------------------
+ 2020-10-28 00:00:11.550992+05:30
+(1 row)
+
+
+
+
+
+18) UPDATE :
+
+Syntax: UPDATE table_name SET column1 = value1, column2 = value2...., columnN = valueN WHERE [condition];
+
+Example:
+mydb1=# SELECT * FROM COMPANY ORDER BY ID;
+ id | name  | age |                      address                       | salary | join_date  
+----+-------+-----+----------------------------------------------------+--------+------------
+  1 | Paul  |  32 | California                                         |  20000 | 2001-07-13
+  2 | Allen |  25 | Texas                                              |  25000 | 2007-12-13
+  3 | Teddy |  23 | Norway                                             |  25000 | 
+  4 | Mark  |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+  5 | David |  27 | Texas                                              |  85000 | 2007-12-13
+(5 rows)
+
+
+
+
+19) DELETE:
+
+Syntax : DELETE FROM table_name WHERE [condition];
+
+Example: To delete specific/ Selected Data.
+
+mydb1=# SELECT * FROM COMPANY ORDER BY ID;
+ id | name  | age |                      address                       | salary | join_date  
+----+-------+-----+----------------------------------------------------+--------+------------
+  1 | Paul  |  32 | California                                         |  20000 | 2001-07-13
+  3 | Teddy |  23 | Norway                                             |  25000 | 
+  4 | Mark  |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+  5 | David |  27 | Texas                                              |  85000 | 2007-12-13
+(4 rows)
+
+
+Example: To delete all the data from the Table:
+
+Syntax: DELETE * FROM <table_name>;
+
+
+
+20) TRUNCATE: 
+
+(TO delete all the data from the table. )
+Syntax: TRUNCATE TABLE <table_name>;
+
+
+#CLAUSES
+
+
+21) WHERE CLAUSE:
+
+Example:
+mydb1=# SELECT * FROM COMPANY WHERE AGE >=25 AND SALARY > 20000;
+ id | name  | age |                      address                       | salary | join_date  
+----+-------+-----+----------------------------------------------------+--------+------------
+  4 | Mark  |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+  5 | David |  27 | Texas                                              |  85000 | 2007-12-13
+(2 rows)
+
+
+
+
+22) Like Keyword (Clause) : 
+
+Syntax: 
+	SELECT FROM table_name
+	WHERE column LIKE 'XXXX%'
+
+or
+
+	SELECT FROM table_name
+	WHERE column LIKE '%XXXX%'
+
+or
+
+	SELECT FROM table_name
+	WHERE column LIKE 'XXXX_'
+
+or
+
+	SELECT FROM table_name
+	WHERE column LIKE '_XXXX'
+
+or
+
+	SELECT FROM table_name
+	WHERE column LIKE '_XXXX_'
+
+
+Example: 
+
+mydb1=# SELECT * FROM COMPANY WHERE AGE::TEXT LIKE '2%';
+ id | name  | age |                      address                       | salary | join_date  
+----+-------+-----+----------------------------------------------------+--------+------------
+  4 | Mark  |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+  5 | David |  27 | Texas                                              |  85000 | 2007-12-13
+  3 | Teddy |  23 | Norway                                             |  25000 | 
+  2 | ALLEN |  25 | TEXAS                                              |  15000 | 
+  6 | KIm   |  22 | South-Hall                                         |  45000 | 
+  7 | James |  24 | Houston                                            |  10000 | 
+(6 rows)
+
+
+mydb1=# SELECT * FROM COMPANY WHERE ADDRESS LIKE '%-%';
+ id | name | age |                      address                       | salary | join_date  
+----+------+-----+----------------------------------------------------+--------+------------
+  4 | Mark |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+  6 | KIm  |  22 | South-Hall                                         |  45000 | 
+(2 rows)
+
+
+
+23) LIMIT: (Clause)
+
+Syntax: SELECT column1, column2, columnN FROM table_name LIMIT [no of rows]
+
+# LIMIT Along with OFFSET CLAUSE:
+Syntax: SELECT column1, column2, columnN FROM table_name LIMIT [no of rows] OFFSET [row num]
+
+OR
+
+	SELECT column1, column2, columnN FROM table_name LIMIT ()
+
+Example:
+
+mydb1=# SELECT * FROM company ORDER BY ID LIMIT 4 ;
+ id | name  | age |                      address                       | salary | join_date  
+----+-------+-----+----------------------------------------------------+--------+------------
+  1 | Paul  |  32 | California                                         |  20000 | 2001-07-13
+  2 | ALLEN |  25 | TEXAS                                              |  15000 | 
+  3 | Teddy |  23 | Norway                                             |  25000 | 
+  4 | Mark  |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+(4 rows)
+
+
+
+Example (OFFSET):
+
+mydb1=# SELECT * FROM company ORDER BY ID LIMIT 3 OFFSET 2;
+ id | name  | age |                      address                       | salary | join_date  
+----+-------+-----+----------------------------------------------------+--------+------------
+  3 | Teddy |  23 | Norway                                             |  25000 | 
+  4 | Mark  |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+  5 | David |  27 | Texas                                              |  85000 | 2007-12-13
+(3 rows)
+
+
+
+24) ORDER BY: (Clause)
+
+Syntax: SELECT column-list FROM table_name [WHERE condition] [ORDER BY column1, column2, .. columnN] [ASC | DESC];
+
+Example: 
+
+mydb1=# SELECT * FROM COMPANY ORDER BY NAME DESC;
+ id | name  | age |                      address                       | salary | join_date  
+----+-------+-----+----------------------------------------------------+--------+------------
+  3 | Teddy |  23 | Norway                                             |  25000 | 
+  1 | Paul  |  32 | California                                         |  20000 | 2001-07-13
+  4 | Mark  |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+  6 | KIm   |  22 | South-Hall                                         |  45000 | 
+  7 | James |  24 | Houston                                            |  10000 | 
+  5 | David |  27 | Texas                                              |  85000 | 2007-12-13
+  2 | ALLEN |  25 | TEXAS                                              |  15000 | 
+(7 rows)
+
+
+
+mydb1=# SELECT * FROM COMPANY ORDER BY NAME, SALARY ASC;
+ id | name  | age |                      address                       | salary | join_date  
+----+-------+-----+----------------------------------------------------+--------+------------
+  2 | ALLEN |  25 | TEXAS                                              |  15000 | 
+  5 | David |  27 | Texas                                              |  85000 | 2007-12-13
+  7 | James |  24 | Houston                                            |  10000 | 
+  6 | KIm   |  22 | South-Hall                                         |  45000 | 
+  4 | Mark  |  25 | Rich-Mond                                          |  65000 | 2007-12-13
+  1 | Paul  |  32 | California                                         |  20000 | 2001-07-13
+  3 | Teddy |  23 | Norway                                             |  25000 | 
+(7 rows)
+
+
+
+25) GROUP BY CLASUE:
+
+Syntax: SELECT column-list FROM table_name WHERE [ conditions ] GROUP BY column1, column2....columnN ORDER BY column1, column2....columnN
+
+Example: 
+
+mydb1=# SELECT NAME, SUM(SALARY) FROM COMPANY GROUP BY NAME ORDER BY NAME;
+ name  |  sum  
+-------+-------
+ ALLEN | 15000
+ David | 85000
+ James | 10000
+ KIm   | 45000
+ Mark  | 65000
+ Paul  | 20000
+ Teddy | 25000
+(7 rows)
+
+
+
+26) WITH CLASUE: is used to improve the performance of our query.
+
+(The WITH clause must be defined before it is used in the query.)
+
+Syntax: with name_query as
+	(
+	sql-query-
+	)
+	SELECT * FROM name_query;
+
+
+
+
+27) HAVING CLAUSE/ GROUP BY HAVING: 
+(The HAVING clause allows us to pick out particular rows where the function's result meets some condition.The WHERE clause places conditions
+ on the selected columns, whereas the HAVING clause places conditions on groups created by the GROUP BY clause.)
+
+Syntax: SELECT FROM WHERE GROUP BY HAVING ORDER BY
+				or
+	SELECT column1, column2 FROM table1, table2 WHERE [ conditions ] GROUP BY column1, column2 HAVING [ conditions ] ORDER BY column1, column2
+
+
+Example: 
+mydb1=# SELECT name FROM COMPANY GROUP BY name HAVING count(name) >1;
+ name  
+-------
+ James
+(1 row)
+
+
+
+28) DISTINCT Keyword: to eliminate all the duplicate records and fetching only unique records.
+
+Syntax: SELECT DISTINCT column1, column2,.....columnN FROM table_name WHERE [condition]
+
+
+Example: 
+
+mydb1=# SELECT DISTINCT NAME FROM COMPANY;
+ name  
+-------
+ Teddy
+ Paul
+ ALLEN
+ Mark
+ David
+ KIm
+ James
+(7 rows)
+
+
+
+29) CONSTRAINTS : Constraints are the rules enforced on data columns on table. These are used to prevent invalid data from being entered into the database. This ensures the accuracy and reliability of the data in the database.
+
+	NOT NULL Constraint − Ensures that a column cannot have NULL value.
+
+	UNIQUE Constraint − Ensures that all values in a column are different.
+
+	PRIMARY Key − Uniquely identifies each row/record in a database table.
+
+	FOREIGN Key − Constrains data based on columns in other tables.
+
+	CHECK Constraint − The CHECK constraint ensures that all values in a column satisfy certain conditions.
+
+	EXCLUSION Constraint − The EXCLUDE constraint ensures that if any two rows are compared on the specified column(s) or expression(s) using the specified operator(s), not all of these comparisons will return TRUE.
+
+
+	E) CHECK CONSTRAINT:
+		Example: 
+			CREATE TABLE COMPANY5(
+			   ID INT PRIMARY KEY     NOT NULL,
+			   NAME           TEXT    NOT NULL,
+			   AGE            INT     NOT NULL,
+			   ADDRESS        CHAR(50),
+			   SALARY         REAL    CHECK(SALARY > 0)
+			);
+
+
+
+
+
+30) JOIN CLAUSE: Joins clause is used to combine records from two or more tables in a database. A JOIN is a means for combining fields from two tables by using values common to each.
+
+
+	Join Types in PostgreSQL are −
+
+	a) The CROSS JOIN
+	b) The INNER JOIN
+	c) The LEFT OUTER JOIN
+	d) The RIGHT OUTER JOIN
+	e) The FULL OUTER JOIN
+
+a) CROSS JOIN: A CROSS JOIN matches every row of the first table with every row of the second table. If the input tables have x and y columns, respectively, the resulting table will have x+y columns.
+
+Reference Link: https://www.postgresqltutorial.com/postgresql-joins/
+
+
+
+31) UNION clause/operator : is used to combine the results of two or more SELECT statements without returning any duplicate rows.
+(To use UNION, each SELECT must have the same number of columns selected, the same number of column expressions, the same data type, and have them in the same order but they do not have to be the same length.)
+
+
+Syntax: 
+	SELECT column1 [, column2 ]
+	FROM table1 [, table2 ]
+	[WHERE condition]
+
+	UNION
+
+	SELECT column1 [, column2 ]
+	FROM table1 [, table2 ]
+	[WHERE condition]
+
