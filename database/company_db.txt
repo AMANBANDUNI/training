@@ -183,7 +183,7 @@ INSERT 0 1
 
 
 
-5) VIEW TABLES:
+5) TABLES Created:
 
 
 	a) employee table:
