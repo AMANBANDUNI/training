@@ -1,0 +1,221 @@
+# Answers of Airlines Assignment 1 :-
+
+
+
+#Queries WITH ANSWERS:
+
+
+
+a. Find the names of aircraft such that all pilots certified to operate them earn
+more than $80,000.
+
+sol- 
+airlines2=# SELECT a_name FROM aircraft WHERE a_id IN (SELECT certified.a_id FROM certified WHERE e_id IN (SELECT employees.e_id FROM employees WHERE salary::NUMERIC > 80000));
+   a_name   
+------------
+ A320 CEO
+ A320 NEO
+ A321 CEO
+ A321 NEO
+ ATR 72-600
+ BOEING
+ A700
+(7 rows)
+
+
+
+
+
+b. For each pilot who is certified for more than three aircraft, find the eid and the
+maximum cruisingrange of the aircraft for which she or he is certified.
+
+sol-
+airlines2=# SELECT certified.e_id,MAX(cruising_range) FROM certified JOIN aircraft ON certified.a_id = aircraft.a_id GROUP BY certified.e_id HAVING(COUNT(certified.a_id)>3);
+ e_id | max  
+------+------
+  103 | 6300
+  102 | 7400
+(2 rows)
+
+
+
+
+
+
+
+c. Find the names of pilots whose salary is less than the price of the cheapest
+route from Los Angeles to Honolulu.
+
+sol- 
+airlines2=# SELECT e_name FROM employees WHERE salary<(SELECT MIN(price) FROM flights WHERE from_='LOS ANGELES' AND to_='HONOLULU') AND employees.e_id IN (SELECT e_id FROM certified);
+ e_name 
+--------
+ AKASH
+(1 row)
+
+
+
+
+
+d. For all aircraft with cruisingrange over 1000 miles, find the name of the
+aircraft and the average salary of all pilots certified for this aircraft.
+
+
+SOL- (PARTIAL)
+airlines2=# SELECT a_name,e_id FROM aircraft JOIN certified ON aircraft.a_id=certified.a_id WHERE cruising_range>1000;
+   a_name   | e_id 
+------------+------
+ A320 CEO   |  102
+ A320 NEO   |  102
+ A321 CEO   |  102
+ A321 NEO   |  102
+ ATR 72-600 |  102
+ A320 CEO   |  103
+ A320 NEO   |  103
+ A321 CEO   |  103
+ A320 CEO   |  104
+ A320 NEO   |  104
+ A320 CEO   |  105
+ A320 NEO   |  105
+ A321 CEO   |  105
+ BOEING     |  103
+ BOEING     |  102
+ BOEING     |  108
+ ATR 72-600 |  117
+(17 rows)
+
+
+
+
+
+
+
+
+e. Find the names of pilots certified for some Boeing aircraft.
+
+sol-
+airlines2=# SELECT e_name FROM employees WHERE e_id IN (SELECT ceairlines2=# SELECT certified.e_id,MAX(cruising_range) FROM certified JOIN aircraft ON certified.a_id = aircraft.a_id GROUP BY certified.e_id HAVING(COUNT(certified.a_id)>3);
+ e_id | max  
+airlines2=# SELECT certified.e_id,MAX(cruising_range) FROM certified JOIN aircraft ON certified.a_id = aircraft.a_id GROUP BY certified.e_id HAVING(COUNT(certified.a_id)>3);
+ e_id | max  
+------+------
+  103 | 6300
+  102 | 7400
+(2 rows)
+------+------
+  103 | 6300
+  102 | 7400
+(2 rows)
+rtified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE a_name='BOEING'));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ NEETU SINGH
+(3 rows)
+
+
+
+
+
+
+
+h. Print the enames of pilots who can operate planes with cruisingrange greater
+than 3000 miles but are not certified on any Boeing aircraft.
+
+sol-
+airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range > 3000 AND a_name NOT LIKE 'BOE%'));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ DEEPAK KUMAR
+ VAIBHAV SINGH
+(4 rows)
+
+
+
+
+
+
+j. Compute the difference between the average salary of a pilot and the average
+salary of all employees (including pilots).
+
+sol-
+airlines2=# SELECT (SELECT AVG(salary::NUMERIC) FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified))-(SELECT AVG(salary::NUMERIC) FROM employees) AS difference_;
+    difference_     
+--------------------
+ 25600.000000000000
+(1 row)
+
+
+
+
+
+
+k. Print the name and salary of every nonpilot whose salary is more than the
+average salary for pilots.
+
+sol-
+airlines2=# SELECT e_name,salary FROM employees WHERE employees.e_ID NOT IN (SELECT certified.e_id FROM certified) AND salary::NUMERIC > (SELECT AVG(salary::NUMERIC)FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified));
+    e_name    |   salary    
+--------------+-------------
+ YOGESH KUMAR | ₹150,000.00
+ AMRIT MISHRA | ₹140,000.00
+(2 rows)
+
+
+
+
+
+
+
+l. Print the names of employees who are certified only on aircrafts with cruising
+range longer than 1000 miles.
+
+SOL-
+airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ DEEPAK KUMAR
+ VAIBHAV SINGH
+ NEETU SINGH
+(5 rows)
+
+
+
+
+
+m. Print the names of employees who are certified only on aircrafts with cruising
+range longer than 1000 miles, but on at least two such aircrafts.
+
+sol-
+airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000) GROUP BY certified.e_id HAVING (COUNT(certified.a_id)>=2));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ DEEPAK KUMAR
+ VAIBHAV SINGH
+(4 rows)
+
+
+
+
+
+
+
+n. Print the names of employees who are certified only on aircrafts with cruising
+range longer than 1000 miles and who are certified on some Boeing aircraft.
+
+SOL-
+airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000 AND a_name LIKE 'BOE%'));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ NEETU SINGH
+(3 rows)
+
