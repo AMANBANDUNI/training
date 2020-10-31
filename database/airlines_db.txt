@@ -1,0 +1,571 @@
+								#Airlines_db
+								#Assignment
+
+
+
+1) CREATING/accessing DATABASE AIRLINES:
+
+airlines2=# CREATE DATABASE airlines2 WITH OWNER aman;
+airlines2=# \c airlines
+
+
+2) CREATING TABLES FOR ALL ENTITIES (flights, aircraft ,certified , employees):
+
+
+	a) CREATING EMPLOYEES TABLE WITH ATTRIBUTES (eid: integer, ename: string, salary: integer):
+
+	airlines2=# CREATE TABLE employees(e_id INT PRIMARY KEY,e_name VARCHAR(30) NOT NULL, salary MONEY NOT NULL,gender CHAR(1));
+
+
+	airlines=# SELECT * FROM employees;
+	 e_id | e_name | salary | gender 
+	------+--------+--------+--------
+	(0 rows)
+
+
+
+
+
+	b) CREATING FLIGHTS TABLE WITH ATTRIBUTES(flno: integer, from: string, to: string, distance: integer, departs:time,arrives: time, price: integer):
+
+	airlines2=# CREATE TABLE flights(f_no INT PRIMARY KEY, from_ TEXT NOT NULL,to_ TEXT NOT NULL,dist REAL NOT NULL,depart TIME ,arrives TIME , price MONEY NOT NULL );
+
+
+	airlines=# SELECT * FROM flights;
+	 f_no | from_ | to_ | dist | depart | arrives | price 
+	------+-------+-----+------+--------+---------+-------
+	(0 rows)
+
+
+
+
+	c) CREATING AIRCRAFT TABLE WITH ATTRIBUTES(aid: integer, aname: string, cruisingrange: integer):
+
+
+	airlines2=# CREATE TABLE aircraft(a_id INT PRIMARY KEY,a_name VARCHAR(30) NOT NULL,cruising_range INT NOT NULL);
+
+	airlines=# SELECT * FROM aircraft;
+	 a_id | a_name | cruising_range_km 
+	------+--------+-------------------
+	(0 rows)	
+
+
+
+	d) CREATING TABLE FOR CERTIFIED TABLE WITH RELATIONAL ATTRIBUTES(eid: integer, aid: integer) :
+
+
+	airlines2=# CREATE TABLE certified(e_id INT, a_id INT , PRIMARY KEY (e_id,a_id), FOREIGN KEY(e_id) REFERENCES employees(e_id) ON DELETE SET NULL, FOREIGN KEY(a_id) REFERENCES aircraft(a_id) ON DELETE CASCADE);
+
+	airlines=# SELECT * FROM certified;
+	 e_id | a_id 
+	------+------
+	(0 rows)
+
+
+
+
+
+
+
+3) INSERTING DATA/VALUES TO THE TABLES CREATED:
+
+
+
+	a) INsERTING DATA INTO employees table:
+
+	airlines=# INSERT INTO employees VALUES(101,'YOGESH KUMAR',150000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(102,'SANJAY GOPPINATH',200000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(103,'ANKITA GUPTA',180000,'F');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(104,'DEEPAK KUMAR',160000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(105,'VAIBHAV SINGH',180000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(106,'SHRUTI SHARMA',100000,'F');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(107,'AMIT VERMA',80000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(108,'NEETU SINGH',80000,'F');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(109,'RAHUL SHARMA',60000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(110,'ANKIT YADAV',58000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(111,'RAJ SINGH',50000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(112,'PREETI',50000,'F');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(113,'PRIYA',30000,'F');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(114,'AKASH',28000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(115,'ANKUR',25000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(116,'AMRIT MISHRA',140000,'M');
+	INSERT 0 1
+	airlines=# INSERT INTO employees VALUES(117,'MIKE',150000,'M');
+	INSERT 0 1
+
+
+
+
+	b) INSERTING DATA INTO AIRCRAFT TABLE:
+
+
+	airlines=# INSERT INTO aircraft VALUES(201,'A320 CEO',6100);
+	INSERT 0 1
+	airlines=# INSERT INTO aircraft VALUES(202,'A320 NEO',6300);
+	INSERT 0 1
+	airlines=# INSERT INTO aircraft VALUES(203,'A321 CEO',5950);
+	INSERT 0 1
+	airlines=# INSERT INTO aircraft VALUES(204,'A321 NEO',7400);
+	INSERT 0 1
+	airlines=# INSERT INTO aircraft VALUES(205,'ATR 72-600',1530);
+	INSERT 0 1
+	airlines=# INSERT INTO aircraft VALUES(206,'BOEING',5730);
+	INSERT 0 1
+	airlines=# INSERT INTO aircraft VALUES(207,'A700',870);
+	INSERT 0 1
+	airlines=# INSERT INTO aircraft VALUES(208,'B650',800);
+	INSERT 0 1
+	airlines=# INSERT INTO aircraft VALUES(209,'B600',850);
+	INSERT 0 1
+
+
+
+	c) INSERTING DATA INTO CERTIFIED TABLE:
+
+
+	airlines=# INSERT INTO certified VALUES(102,201);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(102,202);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(102,203);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(102,204);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(102,205);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(102,206);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(102,207);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(103,201);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(103,202);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(103,203);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(103,206);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(104,201);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(104,202);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(105,201);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(105,202);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(105,203);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(107,207);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(108,206);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(108,207);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(109,208);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(109,209);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(114,209);
+	INSERT 0 1
+	airlines=# INSERT INTO certified VALUES(117,205);
+	INSERT 0 1
+	
+	
+
+
+
+	d) INSERTING DATA INTO FLIGHTS TABLE:
+
+
+	airlines=# INSERT INTO flights VALUES(1,'LOS ANGELES','HONOLULU',2558,'14:40:00','17:15:00',35000);
+	INSERT 0 1
+	airlines=# INSERT INTO flights VALUES(2,'BANGKOK','DELHI',3308.7,'15:40:00','17:30:00',20000);
+	INSERT 0 1
+	airlines=# INSERT INTO flights VALUES(3,'LOS ANGELES','HONOLULU',2554.47,'17:40:00','20:30:00',30000);
+	INSERT 0 1
+	airlines=# INSERT INTO flights VALUES(4,'HONOLULU','CHICAGO',1554.28,'21:15:00','21:50:00',10000);
+	INSERT 0 1
+	airlines=# INSERT INTO flights VALUES(5,'LOS ANGELES','CHICAGO',1554.28,'10:15:00','12:50:00',40000);
+	INSERT 0 1
+	airlines=# INSERT INTO flights VALUES(6,'MADISON','HONOLULU',1200,'19:30:00','20:30:00',15000);
+	INSERT 0 1
+	airlines=# INSERT INTO flights VALUES(7,'HONOLULU','RAGNAROK',800,'20:25:00','20:50:00',10000);
+	INSERT 0 1
+	airlines=# INSERT INTO flights VALUES(8,'RAGNAROK','NEW YORK',1000,'21:10:00','21:50:00',12000);
+	INSERT 0 1
+	airlines=# INSERT INTO flights VALUES(9,'MADISON','RAGNAROK',1300,'15:30:00','16:30:00',15000);
+	INSERT 0 1
+	airlines=# INSERT INTO flights VALUES(10,'RAGNAROK','NEW YORK',1000,'16:30:00','17:50:00',15000);
+	INSERT 0 1
+
+
+
+
+
+
+
+
+
+4) TABLES CREATED:
+
+
+
+A) FLIGHTS TABLE:
+
+airlines2=# SELECT * FROM flights;
+ f_no |    from_    |   to_    |  dist   |  depart  | arrives  |   price    
+------+-------------+----------+---------+----------+----------+------------
+    1 | LOS ANGELES | HONOLULU |    2558 | 14:40:00 | 17:15:00 | ₹35,000.00
+    2 | BANGKOK     | DELHI    |  3308.7 | 15:40:00 | 17:30:00 | ₹20,000.00
+    3 | LOS ANGELES | HONOLULU | 2554.47 | 17:40:00 | 20:30:00 | ₹30,000.00
+    4 | HONOLULU    | CHICAGO  | 1554.28 | 21:15:00 | 21:50:00 | ₹10,000.00
+    5 | LOS ANGELES | CHICAGO  | 1554.28 | 10:15:00 | 12:50:00 | ₹40,000.00
+    6 | MADISON     | HONOLULU |    1200 | 19:30:00 | 20:30:00 | ₹15,000.00
+    7 | HONOLULU    | RAGNAROK |     800 | 20:25:00 | 20:50:00 | ₹10,000.00
+    8 | RAGNAROK    | NEW YORK |    1000 | 21:10:00 | 21:50:00 | ₹12,000.00
+    9 | MADISON     | RAGNAROK |    1300 | 15:30:00 | 16:30:00 | ₹15,000.00
+   10 | RAGNAROK    | NEW YORK |    1000 | 16:30:00 | 17:50:00 | ₹15,000.00
+(10 rows)
+
+
+
+
+
+
+B) AIRCRAFT TABLE:
+
+airlines=# SELECT * FROM aircraft;
+ a_id |   a_name   | cruising_range_km 
+------+------------+-------------------
+  201 | A320 CEO   |              6100
+  202 | A320 NEO   |              6300
+  204 | A321 NEO   |              7400
+  203 | A321 CEO   |              5950
+  205 | ATR 72-600 |              1530
+  206 | BOEING     |              5730
+  207 | A700       |               870
+  208 | B650       |               800
+  209 | B600       |               850
+(9 rows)
+
+
+
+
+
+C) CERTIFIED TABLE:
+
+
+airlines=# SELECT * FROM certified;
+ e_id | a_id 
+------+------
+  102 |  201
+  102 |  202
+  102 |  203
+  102 |  204
+  102 |  205
+  102 |  206
+  102 |  207
+  103 |  201
+  103 |  202
+  103 |  203
+  103 |  206
+  104 |  201
+  104 |  202
+  105 |  201
+  105 |  202
+  105 |  203
+  107 |  207
+  108 |  206
+  108 |  207
+  109 |  208
+  109 |  209
+  114 |  209
+  117 |  205
+(23 rows)
+
+
+
+D) EMPLOYEES TABLE:
+
+airlines=# SELECT * FROM employees;
+ e_id |      e_name      |   salary    | gender 
+------+------------------+-------------+--------
+  101 | YOGESH KUMAR     | ₹150,000.00 | M
+  102 | SANJAY GOPPINATH | ₹200,000.00 | M
+  103 | ANKITA GUPTA     | ₹180,000.00 | F
+  104 | DEEPAK KUMAR     | ₹160,000.00 | M
+  105 | VAIBHAV SINGH    | ₹180,000.00 | M
+  106 | SHRUTI SHARMA    | ₹100,000.00 | F
+  107 | AMIT VERMA       |  ₹80,000.00 | M
+  108 | NEETU SINGH      |  ₹80,000.00 | F
+  109 | RAHUL SHARMA     |  ₹60,000.00 | M
+  110 | ANKIT YADAV      |  ₹58,000.00 | M
+  111 | RAJ SINGH        |  ₹50,000.00 | M
+  112 | PREETI           |  ₹50,000.00 | F
+  113 | PRIYA            |  ₹30,000.00 | F
+  114 | AKASH            |  ₹28,000.00 | M
+  115 | ANKUR            |  ₹25,000.00 | M
+  116 | AMRIT MISHRA     | ₹140,000.00 | M
+  117 | MIKE             | ₹150,000.00 | M
+(17 rows)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Queries WITH ANSWERS:
+
+
+
+a. Find the names of aircraft such that all pilots certified to operate them earn
+more than $80,000.
+
+sol- 
+airlines2=# SELECT a_name FROM aircraft WHERE a_id IN (SELECT certified.a_id FROM certified WHERE e_id IN (SELECT employees.e_id FROM employees WHERE salary::NUMERIC > 80000));
+   a_name   
+------------
+ A320 CEO
+ A320 NEO
+ A321 CEO
+ A321 NEO
+ ATR 72-600
+ BOEING
+ A700
+(7 rows)
+
+
+
+
+
+b. For each pilot who is certified for more than three aircraft, find the eid and the
+maximum cruisingrange of the aircraft for which she or he is certified.
+
+sol-
+airlines2=# SELECT certified.e_id,MAX(cruising_range) FROM certified JOIN aircraft ON certified.a_id = aircraft.a_id GROUP BY certified.e_id HAVING(COUNT(certified.a_id)>3);
+ e_id | max  
+------+------
+  103 | 6300
+  102 | 7400
+(2 rows)
+
+
+
+
+
+
+
+c. Find the names of pilots whose salary is less than the price of the cheapest
+route from Los Angeles to Honolulu.
+
+sol- 
+airlines2=# SELECT e_name FROM employees WHERE salary<(SELECT MIN(price) FROM flights WHERE from_='LOS ANGELES' AND to_='HONOLULU') AND employees.e_id IN (SELECT e_id FROM certified);
+ e_name 
+--------
+ AKASH
+(1 row)
+
+
+
+
+
+d. For all aircraft with cruisingrange over 1000 miles, find the name of the
+aircraft and the average salary of all pilots certified for this aircraft.
+
+
+SOL- (PARTIAL)
+airlines2=# SELECT a_name,e_id FROM aircraft JOIN certified ON aircraft.a_id=certified.a_id WHERE cruising_range>1000;
+   a_name   | e_id 
+------------+------
+ A320 CEO   |  102
+ A320 NEO   |  102
+ A321 CEO   |  102
+ A321 NEO   |  102
+ ATR 72-600 |  102
+ A320 CEO   |  103
+ A320 NEO   |  103
+ A321 CEO   |  103
+ A320 CEO   |  104
+ A320 NEO   |  104
+ A320 CEO   |  105
+ A320 NEO   |  105
+ A321 CEO   |  105
+ BOEING     |  103
+ BOEING     |  102
+ BOEING     |  108
+ ATR 72-600 |  117
+(17 rows)
+
+
+
+
+
+
+
+
+e. Find the names of pilots certified for some Boeing aircraft.
+
+sol-
+airlines2=# SELECT e_name FROM employees WHERE e_id IN (SELECT ceairlines2=# SELECT certified.e_id,MAX(cruising_range) FROM certified JOIN aircraft ON certified.a_id = aircraft.a_id GROUP BY certified.e_id HAVING(COUNT(certified.a_id)>3);
+ e_id | max  
+airlines2=# SELECT certified.e_id,MAX(cruising_range) FROM certified JOIN aircraft ON certified.a_id = aircraft.a_id GROUP BY certified.e_id HAVING(COUNT(certified.a_id)>3);
+ e_id | max  
+------+------
+  103 | 6300
+  102 | 7400
+(2 rows)
+------+------
+  103 | 6300
+  102 | 7400
+(2 rows)
+rtified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE a_name='BOEING'));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ NEETU SINGH
+(3 rows)
+
+
+
+
+
+
+
+h. Print the enames of pilots who can operate planes with cruisingrange greater
+than 3000 miles but are not certified on any Boeing aircraft.
+
+sol-
+airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range > 3000 AND a_name NOT LIKE 'BOE%'));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ DEEPAK KUMAR
+ VAIBHAV SINGH
+(4 rows)
+
+
+
+
+
+
+j. Compute the difference between the average salary of a pilot and the average
+salary of all employees (including pilots).
+
+sol-
+airlines2=# SELECT (SELECT AVG(salary::NUMERIC) FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified))-(SELECT AVG(salary::NUMERIC) FROM employees) AS difference_;
+    difference_     
+--------------------
+ 25600.000000000000
+(1 row)
+
+
+
+
+
+
+k. Print the name and salary of every nonpilot whose salary is more than the
+average salary for pilots.
+
+sol-
+airlines2=# SELECT e_name,salary FROM employees WHERE employees.e_ID NOT IN (SELECT certified.e_id FROM certified) AND salary::NUMERIC > (SELECT AVG(salary::NUMERIC)FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified));
+    e_name    |   salary    
+--------------+-------------
+ YOGESH KUMAR | ₹150,000.00
+ AMRIT MISHRA | ₹140,000.00
+(2 rows)
+
+
+
+
+
+
+
+l. Print the names of employees who are certified only on aircrafts with cruising
+range longer than 1000 miles.
+
+SOL-
+airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ DEEPAK KUMAR
+ VAIBHAV SINGH
+ NEETU SINGH
+(5 rows)
+
+
+
+
+
+m. Print the names of employees who are certified only on aircrafts with cruising
+range longer than 1000 miles, but on at least two such aircrafts.
+
+sol-
+airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000) GROUP BY certified.e_id HAVING (COUNT(certified.a_id)>=2));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ DEEPAK KUMAR
+ VAIBHAV SINGH
+(4 rows)
+
+
+
+
+
+
+
+n. Print the names of employees who are certified only on aircrafts with cruising
+range longer than 1000 miles and who are certified on some Boeing aircraft.
+
+SOL-
+airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000 AND a_name LIKE 'BOE%'));
+     e_name      
+-----------------
+ SANJAY GOPINATH
+ ANKITA GUPTA
+ NEETU SINGH
+(3 rows)
+
