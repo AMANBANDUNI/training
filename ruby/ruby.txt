@@ -1,0 +1,174 @@
+********************************************************************************Ruby *******************************************************************************
+1) Intro.
+
+Ruby is a scripting language designed by Yukihiro Matsumoto, also known as Matz.
+
+Ruby is a perfect Object Oriented Programming Language. The features of the object-oriented programming language include −
+
+Data Encapsulation
+Data Abstraction
+Polymorphism
+Inheritance
+
+
+
+
+
+
+
+rvm (ruby version manager) => Uses to manage the different versions of ruby.
+
+
+$rvm list =>  To list out all the ruby versions installed in our system.
+
+
+$rvm install ruby-<version_no.> / $rvm install <version_no._of_ruby> => To install the specific version of ruby into our system.
+
+
+$rvm use ruby-<version_no._of_ruby> / rvm use <version_no._of_ruby> => To use the specific version of ruby in our system.
+
+
+$rvm reload => TO reload to the latest version of rvm in our system if installed.
+
+
+$irb (Interactive Ruby Shell) => Its a ruby interpreter/interactive programming environment that comes with Ruby, where you can run your ruby code line by line.
+
+
+
+
+
+2) Types of Variables in Ruby:
+
+
+Variables in a Ruby Class
+Ruby provides four types of variables −
+
+	a) Local Variables − Local variables are the variables that are defined in a method. Local variables are not available outside the method.
+	You will see more details about method in subsequent chapter. Local variables begin with a lowercase letter or _.
+	
+
+	b) Instance Variables − Instance variables are available across methods for any particular instance or object. 
+	That means that instance variables change from object to object. Instance variables are preceded by the at sign (@) followed by the variable name.
+
+
+	c) Class Variables − Class variables are available across different objects. A class variable belongs to the class and is a characteristic of a class. 
+	They are preceded by the sign @@ and are followed by the variable name.
+
+	d) Global Variables − Class variables are not available across classes. If you want to have a single variable, which is available across classes, 
+	you need to define a global variable. The global variables are always preceded by the dollar sign ($).
+
+
+
+
+
+
+3) Datatypes in Ruby:
+
+There are a lot of datatypes in ruby , some most common datatypes are:
+Note: Since Ruby is a perfect object oriented language. Here all things works with object and classes, For example: all the info. of datatypes are stored in
+thier own class.
+
+a) string
+b) integer
+c) floating points
+d) Boolean
+e) nil
+
+
+
+
+
+4) skip characters :
+
+a) '\' => backslash is a skip character which tells the interpreter that skip the next character syntax and take is as a string.
+b) '\n' => To tells the interpreter that you want to print the rest of the text in next line and skip the rest of the line.
+						or
+	To tell the interpreter that you want to skip printing in the rest of the line, instead print in the next line.
+
+c) '\t' => To give tab space.
+
+
+
+
+
+
+5) Working with strings : 
+
+	string methods: (<sring_carrying_Variable_name>.methods / "any_string".methods) => This will list out all the methods you can call in this variable or string.
+			There are a lot of methods, through which you can operate in string. Some of them are:
+			i) .upcase() => To make all the letters in upper case of a string.
+			ii) .downcase() => To make all the letters in down case of a string.
+			iii) .size() => To give you the size of the string.
+			iv) .length() => To give the legnth of the string.
+			v) .include() => To check weather a string of words available in the given variable of string or not , by returning a true or false. 
+					e.g) variable_name.include? "string of words you want to check" 
+			vi) .index() => It gives the index number of where a character or string starts.
+					e.g) variable_name.index("character or string which you want to check") 
+			etc.
+
+
+6) Working with Math/numbers :
+
+	methods with numbers: 
+				i) .to_S => To convert a number into a string.
+					e.g)	num=5 
+						puts ("my fav num =" + num.to_s)
+						o/p = my fav num =5
+
+				ii) .abs() => Used to bring the absolute/postive number.
+					e.g)	 num= -20
+						 puts num.abs()
+						 o/p = 20
+				iii) .round() => Used to roundOff the number if it has decimal values in it , then using round function we can round it to the closest whole no.
+					e.g)	num= 20.487
+						puts num.round()
+						o/p = 20
+				iv) .ceil() => ceil function is just like the round() fn , but instead of bringing the closest value , it brings the maximum/ceiling value of no.
+					e.g)	num=20.1
+						puts num.ceil()
+						o/p = 21
+				v) floor() => floor function is just like the round() fn , but instead of bringing the closest value , it brings the minimum/floor value of no.
+					e.g)	num=20.9
+						puts num.ceil()
+						o/p = 20
+				# Some special methods in ruby using the math class.
+				
+				vi) Math.sqrt() => The sqrt function of the Math class Brings the sqrt of the number.
+					e.g)	puts Math.sqrt(36)
+						o/p: 6.0
+				vi) Math.log() => The log function of the Math class Brings the Log value of the number.
+					e.g)	puts Math.log(1)
+						o/p: 0.0
+
+				
+
+	TypeCasting / premitive conversion of integer to float:
+
+	int/int		=	int		|	int + int	=	int
+	float/float	=	float		|	float + float	=	float
+	float/int	=	float		|	float + int	=	float
+	int/float	=	float		|	int + float	=	float
+
+
+
+
+
+
+
+
+
+
+6) Inbuilt Methods : Inbuilt methods are the pre-defined methods , which we can call anytime in our programs.
+
+	 methods: (<sring_carrying_Variable_name>.methods / "any_string".methods) => This will list out all the methods you can call in this variable or string.
+			There are a lot of methods, through which you can operate in string. Some of them are:
+			i) .upcase() => To make all the letters in upper case of a string.
+			ii) .downcase() => To make all the letters in down case of a string.
+			iii) .size() => To give you the size of the string.
+			iv) .length() => To give the legnth of the string.
+			v) .include() => To check weather a string of words available in the given variable of string or not , by returning a true or false. 
+					e.g) variable_name.include? "string of words you want to check" 
+			vi) .index() => It gives the index number of where a character or string starts.
+					e.g) variable_name.index("character or string which you want to check")
+			vii) .to_S => To convert a number into a string.
+					e.g) puts ("my fav num " + num.to_S)
