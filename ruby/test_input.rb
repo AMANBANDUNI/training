@@ -1,3 +1,3 @@
 puts "Enter your name: "
 name = gets.chomp()
-puts "Hello "+ name + "you are cool!"
+puts "Hello "+ name + ", you are cool!"

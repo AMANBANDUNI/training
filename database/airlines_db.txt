@@ -5,8 +5,8 @@
 
 1) CREATING/accessing DATABASE AIRLINES:
 
-airlines2=# CREATE DATABASE airlines2 WITH OWNER aman;
-airlines2=# \c airlines
+airlines=# CREATE DATABASE airlines WITH OWNER aman;
+airlines=# \c airlines
 
 
 2) CREATING TABLES FOR ALL ENTITIES (flights, aircraft ,certified , employees):
@@ -14,7 +14,7 @@ airlines2=# \c airlines
 
 	a) CREATING EMPLOYEES TABLE WITH ATTRIBUTES (eid: integer, ename: string, salary: integer):
 
-	airlines2=# CREATE TABLE employees(e_id INT PRIMARY KEY,e_name VARCHAR(30) NOT NULL, salary MONEY NOT NULL,gender CHAR(1));
+	airlines=# CREATE TABLE employees(e_id INT PRIMARY KEY,e_name VARCHAR(30) NOT NULL, salary MONEY NOT NULL,gender CHAR(1));
 
 
 	airlines=# SELECT * FROM employees;
@@ -28,7 +28,7 @@ airlines2=# \c airlines
 
 	b) CREATING FLIGHTS TABLE WITH ATTRIBUTES(flno: integer, from: string, to: string, distance: integer, departs:time,arrives: time, price: integer):
 
-	airlines2=# CREATE TABLE flights(f_no INT PRIMARY KEY, from_ TEXT NOT NULL,to_ TEXT NOT NULL,dist REAL NOT NULL,depart TIME ,arrives TIME , price MONEY NOT NULL );
+	airlines=# CREATE TABLE flights(f_no INT PRIMARY KEY, from_ TEXT NOT NULL,to_ TEXT NOT NULL,dist REAL NOT NULL,depart TIME ,arrives TIME , price MONEY NOT NULL );
 
 
 	airlines=# SELECT * FROM flights;
@@ -42,7 +42,7 @@ airlines2=# \c airlines
 	c) CREATING AIRCRAFT TABLE WITH ATTRIBUTES(aid: integer, aname: string, cruisingrange: integer):
 
 
-	airlines2=# CREATE TABLE aircraft(a_id INT PRIMARY KEY,a_name VARCHAR(30) NOT NULL,cruising_range INT NOT NULL);
+	airlines=# CREATE TABLE aircraft(a_id INT PRIMARY KEY,a_name VARCHAR(30) NOT NULL,cruising_range INT NOT NULL);
 
 	airlines=# SELECT * FROM aircraft;
 	 a_id | a_name | cruising_range_km 
@@ -54,7 +54,7 @@ airlines2=# \c airlines
 	d) CREATING TABLE FOR CERTIFIED TABLE WITH RELATIONAL ATTRIBUTES(eid: integer, aid: integer) :
 
 
-	airlines2=# CREATE TABLE certified(e_id INT, a_id INT , PRIMARY KEY (e_id,a_id), FOREIGN KEY(e_id) REFERENCES employees(e_id) ON DELETE SET NULL, FOREIGN KEY(a_id) REFERENCES aircraft(a_id) ON DELETE CASCADE);
+	airlines=# CREATE TABLE certified(e_id INT, a_id INT , PRIMARY KEY (e_id,a_id), FOREIGN KEY(e_id) REFERENCES employees(e_id) ON DELETE SET NULL, FOREIGN KEY(a_id) REFERENCES aircraft(a_id) ON DELETE CASCADE);
 
 	airlines=# SELECT * FROM certified;
 	 e_id | a_id 
@@ -227,7 +227,7 @@ airlines2=# \c airlines
 
 A) FLIGHTS TABLE:
 
-airlines2=# SELECT * FROM flights;
+airlines=# SELECT * FROM flights;
  f_no |    from_    |   to_    |  dist   |  depart  | arrives  |   price    
 ------+-------------+----------+---------+----------+----------+------------
     1 | LOS ANGELES | HONOLULU |    2558 | 14:40:00 | 17:15:00 | ₹35,000.00
@@ -360,7 +360,7 @@ a. Find the names of aircraft such that all pilots certified to operate them ear
 more than $80,000.
 
 sol- 
-airlines2=# SELECT a_name FROM aircraft WHERE a_id IN (SELECT certified.a_id FROM certified WHERE e_id IN (SELECT employees.e_id FROM employees WHERE salary::NUMERIC > 80000));
+airlines=# SELECT a_name FROM aircraft WHERE a_id IN (SELECT certified.a_id FROM certified WHERE e_id IN (SELECT employees.e_id FROM employees WHERE salary::NUMERIC > 80000));
    a_name   
 ------------
  A320 CEO
@@ -380,7 +380,7 @@ b. For each pilot who is certified for more than three aircraft, find the eid an
 maximum cruisingrange of the aircraft for which she or he is certified.
 
 sol-
-airlines2=# SELECT certified.e_id,MAX(cruising_range) FROM certified JOIN aircraft ON certified.a_id = aircraft.a_id GROUP BY certified.e_id HAVING(COUNT(certified.a_id)>3);
+airlines=# SELECT certified.e_id,MAX(cruising_range) FROM certified JOIN aircraft ON certified.a_id = aircraft.a_id GROUP BY certified.e_id HAVING(COUNT(certified.a_id)>3);
  e_id | max  
 ------+------
   103 | 6300
@@ -397,7 +397,7 @@ c. Find the names of pilots whose salary is less than the price of the cheapest
 route from Los Angeles to Honolulu.
 
 sol- 
-airlines2=# SELECT e_name FROM employees WHERE salary<(SELECT MIN(price) FROM flights WHERE from_='LOS ANGELES' AND to_='HONOLULU') AND employees.e_id IN (SELECT e_id FROM certified);
+airlines=# SELECT e_name FROM employees WHERE salary<(SELECT MIN(price) FROM flights WHERE from_='LOS ANGELES' AND to_='HONOLULU') AND employees.e_id IN (SELECT e_id FROM certified);
  e_name 
 --------
  AKASH
@@ -505,7 +505,7 @@ h. Print the enames of pilots who can operate planes with cruisingrange greater
 than 3000 miles but are not certified on any Boeing aircraft.
 
 sol-
-airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range > 3000 AND a_name NOT LIKE 'BOE%'));
+airlines=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range > 3000 AND a_name NOT LIKE 'BOE%'));
      e_name      
 -----------------
  SANJAY GOPINATH
@@ -550,7 +550,7 @@ j. Compute the difference between the average salary of a pilot and the average
 salary of all employees (including pilots).
 
 sol-
-airlines2=# SELECT (SELECT AVG(salary::NUMERIC) FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified))-(SELECT AVG(salary::NUMERIC) FROM employees) AS difference_;
+airlines=# SELECT (SELECT AVG(salary::NUMERIC) FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified))-(SELECT AVG(salary::NUMERIC) FROM employees) AS difference_;
     difference_     
 --------------------
  25600.000000000000
@@ -565,7 +565,7 @@ k. Print the name and salary of every nonpilot whose salary is more than the
 average salary for pilots.
 
 sol-
-airlines2=# SELECT e_name,salary FROM employees WHERE employees.e_ID NOT IN (SELECT certified.e_id FROM certified) AND salary::NUMERIC > (SELECT AVG(salary::NUMERIC)FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified));
+airlines=# SELECT e_name,salary FROM employees WHERE employees.e_ID NOT IN (SELECT certified.e_id FROM certified) AND salary::NUMERIC > (SELECT AVG(salary::NUMERIC)FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified));
     e_name    |   salary    
 --------------+-------------
  YOGESH KUMAR | ₹150,000.00
@@ -582,7 +582,7 @@ l. Print the names of employees who are certified only on aircrafts with cruisin
 range longer than 1000 miles.
 
 SOL-
-airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000));
+airlines=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000));
      e_name      
 -----------------
  SANJAY GOPINATH
@@ -600,7 +600,7 @@ m. Print the names of employees who are certified only on aircrafts with cruisin
 range longer than 1000 miles, but on at least two such aircrafts.
 
 sol-
-airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000) GROUP BY certified.e_id HAVING (COUNT(certified.a_id)>=2));
+airlines=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000) GROUP BY certified.e_id HAVING (COUNT(certified.a_id)>=2));
      e_name      
 -----------------
  SANJAY GOPINATH
@@ -619,7 +619,7 @@ n. Print the names of employees who are certified only on aircrafts with cruisin
 range longer than 1000 miles and who are certified on some Boeing aircraft.
 
 SOL-
-airlines2=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000 AND a_name LIKE 'BOE%'));
+airlines=# SELECT e_name FROM employees WHERE employees.e_id IN (SELECT certified.e_id FROM certified WHERE certified.a_id IN (SELECT aircraft.a_id FROM aircraft WHERE cruising_range>1000 AND a_name LIKE 'BOE%'));
      e_name      
 -----------------
  SANJAY GOPINATH
