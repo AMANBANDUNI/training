@@ -11,7 +11,7 @@ e) ruby if modifier statement:
 	<code> if <condition>
 	Note: Executes code if the conditional is true.
 
-f) ruby unless statement
+f) ruby unless statement / unless else statement:
 	syntax: 
 	unless conditional [then]
 	   code
@@ -22,7 +22,7 @@ f) ruby unless statement
 	note: Executes code if conditional is false. If the conditional is true, code specified in the else clause is executed.
 
 
-g) ruby unless modifier statement
+g) ruby unless modifier statement:
 	Syntax:
 	<code> unless <conditional>
 	Note: Executes code if conditional is false.

@@ -1,10 +1,11 @@
-
-
 END{
 puts "This is Terminating Ruby Program"
+puts "Value of constant = #{CONST}"
 }
 
 puts "This is main ruby program"
+CONST = 58
+puts "value of constant = #{CONST}"
 
 BEGIN {
 puts "Initializing ruby program"
