@@ -203,6 +203,7 @@ c) '\t' => To give tab space.
 
 			xiv) .to_a => used to covert into an array.
 			xv) .to_i => to convert into an integer.
+			xvi) .to_f => to covert into float
 
 
 7) Operators:
@@ -319,4 +320,25 @@ Operator	|	Description							|	Example
 
 
 
-9) 
+9) Conditional Statements: (the more related data in the README.md file in Conditional_statement direcory)
+	a) If else	/	if modifier
+	b) elsif
+	c) unless	/	unless modifier
+	d) case
+
+
+10) Loops : (the more related data is in the README.md file in loops directory)
+	a) while	/	while modifier
+	b) until	/	until modifier
+	c) for
+	
+
+
+11) Methods:
+
+
+
+12) Blocks:
+
+
+13) Modules:

@@ -54,8 +54,9 @@ d) Class Methods:
 
 	Note: To access this method, you need not create objects of the class Accounts.
 
+# Doubt
 
-e) Ruby alias Statement:
+e) Ruby alias Statement: 
 
 	This gives alias to methods or global variables. Aliases cannot be defined within the method body. The alias of the method keeps the current definition
 	 of the method, even when methods are overridden.
