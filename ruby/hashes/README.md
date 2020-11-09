@@ -47,7 +47,35 @@ As with arrays, there is a variety of ways to create hashes. You can create an e
 		
 		month
 		month
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Create hash using block (Ruby):
+
+		foo = Hash.new do |f|
+		  f[:apple] = "red"
+		  f[:orange] = "orange"
+		  f[:grape] = "purple"
+		end
+		foo.inspect # => {}
+		foo[:nosuchvalue] # => "purple"
+		foo # => {:apple=>"red", :orange=>"orange", :grape=>"purple"}	
 	
+
+			OR
+
+	Example: 
+
+		foo = {
+		  apple:  'red',
+		  orange: 'orange',
+		  grape:  'purple'
+		}
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	# Fetching Hash Values:	
 
 	example:
 		H = Hash["a" => 100, "b" => 200]
@@ -71,3 +99,99 @@ As with arrays, there is a variety of ways to create hashes. You can create an e
 
 
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+	# Modifying hashes in Ruby: 
+
+	Note: Hash can be modified by adding or deleting a key value/pair in an already existing hash. Also, you can change the existing value of key in the hash.
+
+
+	Example:
+		# creating hash using {} braces 
+		geeks_hash1 = {"DS" => 1, "Java" => 2} 
+  
+		puts "Before Modifying"
+  
+		# fetching values of hash using [] 
+		puts geeks_hash1['DS']    
+		puts geeks_hash1['Java']   
+  
+		puts "\n"
+  
+		puts "After Modifying"
+  
+		# modifying hash values 
+		geeks_hash1["DS"] = 4
+		geeks_hash1["Java"] = 5
+  
+		# fetching values of hash using [] 
+		puts geeks_hash1['DS']  
+		puts geeks_hash1['Java']
+
+
+
+
+
+		Output:
+
+		Before Modifying
+		1
+		2
+
+		After Modifying
+		4
+		5
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Hash Built-in Methods:
+
+	Syntax: 
+		<Hash_variable>.<method_name>
+	
+
+	a) .keys => Returns a new array containing all the keys of hash.
+	b) .values => Returns a new array containing all the values of hash.
+
+	Example:
+		$, = ", "
+		months = Hash.new( "month" )
+		months = {"1" => "January", "2" => "February"}
+
+		keys = months.keys
+		puts "#{keys}"$, = ", "
+		months = Hash.new( "month" )
+		months = {"1" => "January", "2" => "February"}
+
+		keys = months.keys
+		puts "#{keys}"
+
+
+
+		This will produce the following result −
+
+		["1", "2"]
+
+
+
+
+	c) .clear => Removes all key-value pairs from hash.
+	
+	d) .default(key = nil) => Returns the default value for hash, nil if not set by default=. ([] returns a default value if the key does not exist in hash.)
+
+	e) .default = obj => Sets a default value for hash.
+
+	f) hash.default_proc => Returns a block if hash was created by a block.
+
+	g) hash.delete(key) [or] array.delete(key) { |key| block } => Deletes a key-value pair from hash by key. If block is used, returns the result of a 
+									block if pair is not found. Compare delete_if.
+	h) hash.invert => Creates a new hash, inverting keys and values from hash; that is, in the new hash, the keys from hash become values and values become keys.
+
+	i) hash.length => Returns the size or length of hash as an integer.
+
+	
+	j) hash.values_at(obj, ...)=> Returns a new array containing the values from hash that are associated with the given key or keys.

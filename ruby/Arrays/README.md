@@ -126,5 +126,101 @@ You can also use a block with new, populating each element with what the block e
 	# Array pack Directives: (Doubt)
 
 
+	Doubts
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+	# Array Built in Methods / Modifying Arrays
+
+
+=> Adding Values to Arrays: 
+	
+	a) Adding value to the end of an array.:
+	
+		you can add values to the array using <<:
+	
+			Example:
+				a << 32
+				a << 'carrot'
+				
+				OR
+	
+		 or by using push method:
+			or use a method instead of an operator, either of these is equivalent to the preceding line:
+	
+			Example:
+				a.push 'carrot'
+				a.push('carrot')
+
+	b) Adding/inserting value in the begining of an array.:
+
+		Method name: unshift
+		Syntax: .ushift()
+			<array_name>.unshift(<value>)
+
+		Example: 
+			writers.unshift('Hodgman')
+
+	c) Adding/inserting value to a specific index: (Using .insert(_,_) method)
+
+		Syntax: .insert(_,_)
+
+		<array_name>.insert(<index_name>,<value_of_any_datatype> )
+
+
+
+
+	d) Deleting last entered value from the array:
+		
+
+		Syntax: .pop()
+		
+		<array_name>.pop()
+
+		Example: writers.pop()
+
+
+	e) Deleting specific value from the array:
+		
+		Syntax: .delete(<value_name>)
+
+		Example: 
+			writers.delete('Hodgman')
+
+
+	f) Changing values in an array:
+		Syntax: 
+			<array_name>[<index_name>] = <new_value>
+		Example: 
+			writers[1]='peaky'
+	
+	g) To know about the size/length of an array:
+	
+		Syntax: 
+			<array_name>.length()	or	<array_name>.size()
+
+	h) To check for a specific value is present in array or not:
+
+		We use .include method to check for a specific value in an array. 
+		Note: It will return a boolean value "true" if found and "false" if not.
+		
+		Syntax:
+			<array_name>.include? <value_name>
+
+
+	i) Reverse the order of an array:
+		Note: We can also reverse the order of an array.
+		
+		Syntax: 
+			<array_name>.reverse()
+
+	j) Clone / Copy : 
+		To make a Copy of an array.
+
+		Syntax: 
+			.clone()
 
 

@@ -89,6 +89,18 @@ There are 10 statements which we will use in loops in ruby.
 
 
 
+
+
+	=> Reverse iteration / Reverse loop
+	Syntax/example:
+			(0..5).reverse_each do |i|
+			  # do something
+			end
+
+
+
+
+
 7) Ruby Break statement:
 	Syntax: 
 		break
@@ -132,3 +144,6 @@ There are 10 statements which we will use in loops in ruby.
 		for i in 1..5
 		   retry if some_condition # restart from i == 1
 		end
+
+
+

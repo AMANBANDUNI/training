@@ -204,6 +204,8 @@ c) '\t' => To give tab space.
 			xiv) .to_a => used to covert into an array.
 			xv) .to_i => to convert into an integer.
 			xvi) .to_f => to covert into float
+			xv) .to_a => to convert to an array
+			xvi) .reverse_each do |i| => to iterate in reverse.   (e.g. (0..5).reverse_each do |i| )
 
 
 7) Operators:
@@ -342,3 +344,22 @@ Operator	|	Description							|	Example
 
 
 13) Modules:
+
+
+14) Strings:
+
+15) Arrays : 
+
+16) Hashes :
+
+17) Date & TIme:
+
+
+
+18) Ranges: 
+
+19) Iterators: 
+
+20) File IO:
+
+
