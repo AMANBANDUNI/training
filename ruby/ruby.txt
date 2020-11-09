@@ -1,3 +1,4 @@
+
 ********************************************************************************Ruby *******************************************************************************
 1) Intro.
 
@@ -206,7 +207,23 @@ c) '\t' => To give tab space.
 			xvi) .to_f => to covert into float
 			xv) .to_a => to convert to an array
 			xvi) .reverse_each do |i| => to iterate in reverse.   (e.g. (0..5).reverse_each do |i| )
+			xvii) .grep(<datatype>) => to list out specific datatype(mentioned in grep method) values from the arrays.
+				e.g.) objects.grep(String)
+					objects.grep(Integer)
 
+					OR
+					objects.select { |obj| Integer === obj }
+
+			xviii) .concat("<string you want to concatenate>") => To cancatenate a string into a string.
+
+
+			xix) objects.select { |obj| Integer === obj }
+
+			xx) .collect do {|i|}
+
+				e.g.) a.collect {|x| x + "!" }
+
+			
 
 7) Operators:
 

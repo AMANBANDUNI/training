@@ -99,6 +99,10 @@ There are 10 statements which we will use in loops in ruby.
 
 
 
+	
+	=> <range>.step(<any_no.>) do |i| => To run loop in steps.
+
+	
 
 
 7) Ruby Break statement:

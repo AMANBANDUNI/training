@@ -1,0 +1,56 @@
+# Ruby Grep Method:
+
+You can use Grep to filter enumerable objects, like Arrays & Ranges.
+
+
+
+Ruby Grep Method Examples
+
+Given this array:
+
+objects = ["a", "b", "c", 1, 2, 3, nil]
+You can use grep to get only the strings:
+
+objects.grep(String)
+# ["a", "b", "c"]
+Only the Integers:
+
+objects.grep(Integer)		/	OR	objects.select { |obj| Integer === obj } 
+# [1, 2, 3]
+
+
+Or everything that isn’t nil:
+
+objects.grep_v(NilClass)
+# ["a", "b", "c", 1, 2, 3]
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+If you have an array of words:
+
+fruit = ["apple", "orange", "banana"]
+You can find all the words that start with “a”:
+
+fruit.grep(/^a/)
+# ["apple"]
+
+
+Or that end with “e”:
+
+fruit.grep(/e$/)
+# ["apple", "orange"]
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+And if you have a list of numbers:
+
+numbers = [9, 10, 11, 20]
+You can get a list of all the numbers within a range:
+
+numbers.grep(5..10)
+# [9, 10]

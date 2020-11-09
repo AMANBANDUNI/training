@@ -82,7 +82,16 @@ Example:
 		This will produce the following result −
 	
 		this is test
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Changing a Section of a String:
+
+	myString = "Welcome to JavaScript!"
 	
+	myString["JavaScript"]= "Ruby"
+
+	puts myString
+	=> "Welcome to Ruby!"	
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
