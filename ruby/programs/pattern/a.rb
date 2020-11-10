@@ -1,3 +1,4 @@
+def a
 sp=4
 st=1
 5.times do |i|
@@ -21,4 +22,5 @@ st=1
 	st+=2
 	print"\n"	
 	sp-=1
+end
 end

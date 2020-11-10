@@ -1,3 +1,4 @@
+def p
 s1=3
 s2=1
 5.times do |i|
@@ -15,4 +16,5 @@ s2=1
 		end
 	end
 	print"\n"
+end
 end

@@ -1,3 +1,4 @@
+def y
 sp=4
 5.times do |i|
 	sp.times do |j|
@@ -9,4 +10,5 @@ sp=4
 	end
 	sp-=1
 	print"@\n"
+end
 end

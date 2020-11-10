@@ -1,3 +1,4 @@
+def h
 s=3
 5.times do |i|
 	s.times do |j|
@@ -8,4 +9,5 @@ s=3
 		print "@"
 	end
 	print"\n"
+end
 end
