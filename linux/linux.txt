@@ -229,3 +229,7 @@ Example:
 
 43) cat => is used to show you concatenation of two or more files. 
 	e.g.) cat <file1> <file2>
+
+44) mv -v ~ <directory1/complete location of directory1>/* ~ <directory2/complete location of directory 2> => It will move all the files from directory 1 to directory 2.
+
+

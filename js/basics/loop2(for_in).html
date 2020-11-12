@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For-in</title>
+</head>
+<body>
+    <h2>Loop/For-in/For-of</h2>
+
+    <script>
+        var students = {
+            name: "Aman Banduni",
+            age: 23,
+            email_id: "abandun.5@gmail.com",
+            username: "AmanBanduni",
+        };
+
+        var i;
+        for (i in students){
+            document.write(students[i] + "<br>");
+        }
+        document.write("<br>");
+
+        var i;
+        courses = ["Pyhton", "Web Development", "ML", "C++","Java"];
+        for (i in courses){
+            document.write([i] + "<br>");
+        }
+        document.write("<br>");
+
+        var i;
+        courses = ["Pyhton", "Web Development", "ML", "C++","Java"];
+        for (i of courses){
+            document.write([i] + "<br>");
+        }
+        document.write("<br>");
+        
+        var name= "Aman banduni";
+        for (i of name){
+            document.write(i + "<br>");
+        }
+    </script>
+</body>
+</html>

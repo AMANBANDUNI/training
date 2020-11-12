@@ -1,0 +1,48 @@
+<!-- settimeout(function, time in millisecond)
+To call function once after given time.
+
+setinterval(function , time in millisecond)
+TO call function again and again after given time interval. 
+
+clearinterval
+To stop the particular time interval.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Time Interval</h2>
+    <!-- <button onclick="setTimeout(myfunc, 2000)">Click Me</button>
+    <br><br>
+    <button onclick="setInterval(myfunc, 2000)">Click Me</button>
+    <br><br> -->
+    <button onclick="start()">Start</button>
+    <br><br>
+    <div id="main"></div>
+    <br><br>
+    <button onclick="stop()">Stop</button>
+
+    <script>
+        function myfunc(){
+            var d = new Date();
+            document.getElementById("main").innerHTML = d.toLocaleTimeString();
+            // console.log("Hii Users");
+            // alert("Hii Problem occured");
+        }
+
+        var tm;
+        function start(){
+            tm= setInterval(myfunc, 1000);
+        }
+
+        function stop(){
+            clearInterval(tm);
+        }
+    </script>
+</body>
+</html>
