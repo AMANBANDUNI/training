@@ -75,3 +75,6 @@ Syntax / example:
 	(0..5).reverse_each do |i|
 	  # do something
 	end
+
+d) .downto => 
+	e.g.) n.downto 1 do |i|

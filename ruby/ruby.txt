@@ -222,6 +222,9 @@ c) '\t' => To give tab space.
 			xx) .collect do {|i|}
 
 				e.g.) a.collect {|x| x + "!" }
+			xxi) .downto <value> do |i| => 
+				e.g.) n.downto 1 do |i|
+
 
 			
 
@@ -380,3 +383,46 @@ Operator	|	Description							|	Example
 20) File IO:
 
 
+21) Exceptional Handling.
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Ascii value:
+
+Abbreviated from American Standard Code for Information Interchange, is a character encoding standard for electronic communication. 
+
+ascii value is a standard value/code given to every character/number/alphabets in a programming language.
+
+
+=> Convert a String or Character to ASCII code in Ruby:
+
+You can convert a character to its ASCII value in Ruby using the ord() function:
+
+	Example:
+		"a".ord
+		# 97 
+
+
+	Here is how you can convert multiple characters to their ASCII value:
+
+		"abc".bytes
+		# [97, 98, 99]
+
+
+
+=> Convert an ASCII value to its corresponding character in Ruby:
+
+If you have an integer ranging from 0 to 127, you can get its associated character in the ASCII character set using use the chr() function:
+
+	Example:
+		97.chr
+		# a
+	
+	You can convert multiple integers to a string in the ASCII character set like so:
+
+	Example:
+		[97,98,99,100].pack('c*')
+		=> "abcd"

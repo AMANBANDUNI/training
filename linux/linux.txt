@@ -226,3 +226,6 @@ Example:
 	e.g.) $ grep "reverse" factorial.rb 
 
 42) grep -f <file_name> <file_name> => To print the pattern which matches from file 1 to file 2.
+
+43) cat => is used to show you concatenation of two or more files. 
+	e.g.) cat <file1> <file2>
