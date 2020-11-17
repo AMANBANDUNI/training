@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>switch case</title>
+</head>
+<body>
+<h2>switch case example</h2>
+<p>A basic Calculator program.</p>
+<br\>
+<!--
+<span>Enter fisrt number: </span>
+<input id="un" type="number" name="num1">
+
+<span>Enter second number: </span>
+<input id="dos" type="number" name="num2">
+
+<span>Enter operator symbol: </span>
+<input id="tres" type="text" name="ch">
+-->
+
+
+<script>
+	var res;
+	var num1 = prompt("Enter first number: ","enter first number");
+	var num2 = prompt("Enter second number: ","1");
+	var ch = prompt("Enter second number: ","+");
+	switch (ch)
+	{
+		case "+":
+			res=num1+num2;
+			document.write(num1+" + "+num2+" = "res);
+			break;
+		case "-":
+			res=num1-num2;
+			document.write(num1+" - "+num2+" = "res);
+			break;
+		case "*":
+			res=num1*num2
+			document.write(num1+" * "+num2+" = "res);
+			break;
+		case "/":
+			res=num1/num2;
+			document.write(num1+" / "+num2+" = "res);
+			break;
+		default:
+			document.write("Invalid character.");
+	}
+</script>
+
+</body>
+</html>
