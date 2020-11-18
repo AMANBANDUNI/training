@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>switch case example1</title>
+</head>
+<body>
+<h2>Switch case: </h2>
+<p>This is just an example of switch case.</p>
+<script>
+var res;
+var num1=20;
+var num2= 15;
+var ch="-";
+switch (ch)
+{
+case "+":
+	res=num1+num2;
+	document.write(num1+" + "+num2+" = "+res);
+	break;
+case "-":
+	res=num1-num2;
+	document.write(num1+" - "+num2+" = "+res);
+	break;
+case "*":
+	res=num1*num2;
+	document.write(num1+" * "+num2+" = "+res);
+	break;
+case "/":
+	res=num1/num2;
+	document.write(num1+" / "+num2+" = "+res);
+	break;
+default:
+	document.write("Invalid symbol entered.");
+}
+</script>
+</body>
+</html>

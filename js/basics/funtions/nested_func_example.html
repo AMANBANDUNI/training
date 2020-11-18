@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>nested funtion</title>
+</head>
+<body>
+<h2>nested funtion example</h2>
+<p></p>
+<form>
+<input type="button" value="Click me" onclick="func2()">
+</form>
+<script>
+function func1(f,l){
+	return f+" "+l;
+	
+}
+function func2(){
+	var first="Aman";
+	var last="Banduni";
+	var full = func1(first,last);
+	document.write(full);
+}
+</script>
+</html>

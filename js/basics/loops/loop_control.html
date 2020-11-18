@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loop COntrol</title>
+</head>
+<body>
+<h2>loop Control:</h2>
+<p>This is just an example of loop control statements with Labels.</p>
+<br>
+<script type="text/javascript">
+document.write("Entering the loop"+"<br>");
+outerloop:
+	for (i=0;i<5;i++)
+	{
+		document.write("Outerloop "+i+"<br>");
+		innerloop:
+			for(j=0;j<4;j++)
+			{
+				if (j>3) break;	<!-- quiting innerloop-->
+				if(i==2) break innerloop; <!-- quiting innermost loop in different way using label.-->
+				if(i==4) break outerloop; <!-- quiting outerloop -->
+				document.write("innerloop "+j+"<br/>");
+			}
+			document.write("<br/>");
+	}
+	document.write("Exiting the loop");
+</script>
+</body>
+</html>
