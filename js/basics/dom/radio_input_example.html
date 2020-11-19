@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting system</title>
+</head>
+<body>
+    <h2>Voting System</h2>
+    <p>Choose one: </p>
+    <form name="myform" action="">
+        BJP: <input type="radio" name="vote" value="bjp">
+        Congress: <input type="radio" name="vote" value="congress">
+        Nota: <input type="radio" name="vote" value="nota"><br><br>
+        <input type="button" value="submit" onclick="myfunc1()"><br><br>
+    </form>
+    <div id="i1"></div>
+
+    <script>
+        funtion myfunc1(){
+            var v= document.myform.vote.value;
+            document.getElementById("i1").innerText= v;
+            
+        if (v =="bjp"){
+            document.write("you voted for "+ v);
+        }
+        else if (v=="congress"){
+            document.write("you voted for "+ v);
+        }
+        else{
+            document.write("you voted for "+ v);
+        }   
+        }
+    </script>
+</body>
+</html>

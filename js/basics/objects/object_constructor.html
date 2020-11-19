@@ -1,0 +1,32 @@
+<!--Here, you need to create function with arguments. Each argument value 
+    
+    can be assigned in the current object by using this keyword.
+
+    The this keyword refers to the current object.
+
+    The example of creating object by object constructor is given below.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Constructor</title>
+</head>
+<body>
+    <h2>Object Constructor</h2>
+    <p>reading object by object constructor</p>
+
+<script>
+    function emp(id,name,salary,gender){
+        this.id=id;
+        this.name=name;
+        this.salary=salary;
+        this.gender=gender;
+    }
+
+    e1=new emp(1,"AMAN BANDUNI",25000,"M");
+    document.write(e1.id+" " +e1.name+ " " + e1.gender+ " " + e1.salary);
+</script>
+
+</html>

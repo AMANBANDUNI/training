@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input example 2</title>
+</head>
+<body>
+    <h2>Input example</h2>
+    <form name="myform" action="">
+        Enter your Name: <input type="text" name="name">
+        Enter age: <input type="number" name="age">
+        <input type="button" value="submit" onclick="myfunc()">
+    </form>
+    <div id="i1"></div>
+
+    <script>
+        function myfunc(){
+            let n= document.myform.name.value;
+            let a= document.myform.age.value;
+            document.write("Hello "+n+" ,you are "+ a + " years old.");
+        }
+    </script>
+</body>
+</html>

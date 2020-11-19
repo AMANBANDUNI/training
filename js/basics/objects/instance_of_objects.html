@@ -1,0 +1,29 @@
+<!--Creating Object using instance of an object.-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>instance of objects</title>
+</head>
+<body>
+<h2>Creating instance of objects.</h2>
+<p>Creating Objects By creating instance of Object directly (using new keyword)</p>
+<div id="p1"></div>
+<div id = "p2"></div>
+
+<script>
+var emp= new Object();
+emp.id = 1;
+emp.name = "Aman Banduni";
+emp.salary = 25000;
+emp.gender="M"; 
+
+for (i in emp)
+{
+    document.write(emp[i]+" ");
+}
+
+document.write("<br/>"+emp.id+" "+ emp.name+" "+emp.gender +" "+emp.salary+" ");
+
+</script>
+</body>
+</html>
