@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting system</title>
+</head>
+<body>
+    <h2>Voting System</h2>
+    <p>Choose one: </p>
+    <form name="myform" action="">
+        BJP: <input id="p1" type="radio" name="vote" value="bjp">
+        Congress: <input id="p2" type="radio" name="vote" value="congress">
+        Nota: <input id="p3" type="radio" name="vote" value="nota"><br><br>
+        <input id="btn" type="button" value="submit" onclick="myfunc1()"><br><br>
+    </form><br><br>
+    
+
+    <script>
+        function myfunc1(){
+            var v1= document.getElementById("p1");
+            var v2= document.getElementById("p2");
+            var v3= document.getElementById("p3");
+
+            
+        if (v1.checked==true){
+            alert("you voted for "+ v1.value);
+        }
+        else if (v2.checked==true){
+            alert("you voted for "+ v2.value);
+        }
+        else if (v3.checked==true){
+            alert("you voted for "+ v3.value);
+        }   
+        else{
+            alert("you have  not voted.");
+        }
+        }
+    </script>
+</body>
+</html>
