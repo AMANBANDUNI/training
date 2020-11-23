@@ -17,11 +17,11 @@
     <div id="i1"></div>
 
     <script>
-        funtion myfunc1(){
+        function myfunc1(){
             var v= document.myform.vote.value;
-            document.getElementById("i1").innerText= v;
-            
-        if (v =="bjp"){
+            document.getElementById("i1").innerHTML= "you voted for "+v;
+           
+        if (v.checked!=true){
             document.write("you voted for "+ v);
         }
         else if (v=="congress"){
