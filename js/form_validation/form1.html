@@ -15,13 +15,17 @@
             First_name: <input type="text" name="fname" id="fn" class="name">
             &nbsp Last_name: <input type="text" name="lname" id="ln" class="name">
             <br><br>
-            email: <input type="email" name="email" id="e">
+            Email ID: <input type="email" name="email" id="e">
             <br><br>
             Password: <input type="password" name="password" id="pswd">
             <br><br>
-            Phone no.: <input type="number" name="number" id="no">
+            Phone no.: <input size="10" tabindex="5" name="number" id="no" maxlength="10" onkeyup="tab_index(this,this.value)">
             <br><br>
-            D.O.B.: <input type="date" name="dateofbirth" id="dob">
+            <div class="dobcontainer">
+            D.O.B.: MM: <input size="2" tabindex="6" id="mm" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)">
+            DD: <input size="2" tabindex="7" id="dd" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)">
+            YY: <input size="4" tabindex="8" id="yy" class="dateofbirth" maxlength="4" onkeyup="tab_index(this,this.value)">
+            </div>
             <br><br>
             Registration Id: <input type="text" name="reg_id" id="ri">
             <br><br>

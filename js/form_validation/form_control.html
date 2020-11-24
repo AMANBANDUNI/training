@@ -1,0 +1,23 @@
+<html>
+<head>
+<script type="text/javascript">
+function toUnicode(elmnt,content){
+    if (content.length==elmnt.maxLength){
+      next=elmnt.tabIndex
+      if (next<document.forms[0].elements.length){
+        document.forms[0].elements[next].focus()
+    }
+  }
+}
+</script>
+</head>
+
+<body>
+<form>
+<input size="3" tabindex="1" maxlength="3" onkeyup="toUnicode(this,this.value)">
+<input size="3" tabindex="2" maxlength="3" onkeyup="toUnicode(this,this.value)">
+<input size="3" tabindex="3" maxlength="3" onkeyup="toUnicode(this,this.value)">
+</form>
+</body>
+
+</html>
