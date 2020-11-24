@@ -133,11 +133,23 @@ function myfunc(){
     }
     var y = new Date;
     var current_year =y.getFullYear();
+    var current_month= y.getMonth()+1;
+    var current_date=y.getDate();
+    console.log(current_month+" "+ current_date+ " "+current_year);
     if ((current_year-year)<18){
         return "you are not 18 +";
     }
+    else if (month>=current_month){
+        if(month>current_month){
+            return "you are under 18!!";
+        }
+        else if(date>current_date){
+            return "You are under 18!";
+        }
+        else{
+        }
+    }
     else{
-
     }
     if (rid!=""){
         var rid_format= /^[A-Z][A-Za-z0-9_-]{5,15}$/;
