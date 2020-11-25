@@ -190,11 +190,11 @@ function tab_index(elemnt,content){
 // }
 
 function onlychr(evnt){
-    console.log(evnt);
+    // console.log(evnt);
     var charCde = evnt.keyCode;
-    console.log(charCde);
-    var charcode = evnt.key;
-    console.log(charcode);
+    // console.log(charCde);
+    // var charcode = evnt.key;
+    // console.log(charcode);
     if (charCde>=65 && charCde<=90 || charCde>=97 && charCde<=122 || charCde==8){
         return true;
     }
@@ -216,3 +216,13 @@ function onlychr(evnt){
 //         document.getElementById("fname").value="";
 //     }
 // }
+
+function onlynum(){
+    var charcode = event.keyCode;
+    if(charcode>=48 && charcode<=57 || charcode==8){
+        return true;
+    }
+    else{
+        return false;
+    }
+}

@@ -31,7 +31,7 @@
             <table id="tbl">
                 <tr>
                     First_name: <input type="text" name="fname" id="fn" class="name" onkeypress="return onlychr(event)">
-                    &nbsp Last_name: <input type="text" name="lname" id="ln" class="name" onkeypress=" onlychr(event)">
+                    &nbsp Last_name: <input type="text" name="lname" id="ln" class="name" onkeypress="return onlychr(event)">
                 </tr>
                 <br><br>
                 <tr>
@@ -43,7 +43,7 @@
                 </tr>
                 <br><br>
                 <tr>
-                    Phone no.: <input size="10" tabindex="5" name="number" id="no" maxlength="10" onkeyup="tab_index(this,this.value)">
+                    Phone no.: <input size="10" tabindex="5" name="number" id="no" maxlength="10" onkeypress="return onlynum(event)" onkeyup="tab_index(this,this.value)">
                 </tr>
                 <br><br>
                 <tr>
