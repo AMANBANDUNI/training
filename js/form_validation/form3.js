@@ -1,4 +1,4 @@
-var mnth_obj=[
+/*var mnth_obj=[
     {m:01, d:31}, 
     {m:02, d:28}, 
     {m:03, d:31}, 
@@ -11,7 +11,7 @@ var mnth_obj=[
     {m:10, d:31}, 
     {m:11, d:30}, 
     {m:12, d:31}, 
-];
+];*/
 function myfunc(){
     var fname = document.myform.fname.value;
     var lname = document.myform.lname.value;
@@ -135,22 +135,23 @@ function myfunc(){
     var current_year =y.getFullYear();
     var current_month= y.getMonth()+1;
     var current_date=y.getDate();
-    console.log(current_month+" "+ current_date+ " "+current_year);
+    console.log("current m= "+current_month+"current d= "+ current_date+ "current y= "+current_year);
     if ((current_year-year)<18){
         return "you are not 18 +";
     }
-    else if (month>=current_month){
-        if(month>current_month){
-            return "you are under 18!!";
-        }
-        else if(date>current_date){
-            return "You are under 18!";
-        }
-        else{
+    else if((current_year-year)==18){
+        if (month>=current_month){
+            if(month>current_month){
+                return "you are under 18!!";
+            }
+            else if(date>current_date){
+                return "You are under 18!";
+            }
+            else{
+            }
         }
     }
-    else{
-    }
+    else{}
     if (rid!=""){
         var rid_format= /^[A-Z][A-Za-z0-9_-]{5,15}$/;
         if (rid.match(rid_format)){
@@ -169,10 +170,49 @@ function myfunc(){
 }
 function tab_index(elemnt,content){
     if (content.length == elemnt.maxLength ){
-        console.log(content);
+        // console.log(elemnt);
+        // console.log(content);
         next=elemnt.tabIndex;
         if (next<=document.forms[0].elements.length){
             document.forms[0].elements[next].focus();
         }
     }
 }
+// function onlychar(){
+//     var charCode = event.keyCode;
+//     // console.log(charCode);
+//     // var charcode = event.key;
+//     // console.log(charcode);
+//     if ((charCode>64 && charCode<91) || (charCode>96 && charCode<123 || charCode==8))
+//         return true;
+//     else
+//         return false;
+// }
+
+function onlychr(evnt){
+    console.log(evnt);
+    var charCde = evnt.keyCode;
+    console.log(charCde);
+    var charcode = evnt.key;
+    console.log(charcode);
+    if (charCde>=65 && charCde<=90 || charCde>=97 && charCde<=122 || charCde==8){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+// function onlychr(evnt){
+//     console.log(evnt);
+//     var charCde = evnt.keyCode;
+//     console.log(charCde);
+//     var charcode = evnt.key;
+//     console.log(charcode);
+//     if (charCde>=65 && charCde<=90 || charCde>=97 && charCde<=122 || charCde==8){
+//         return true;
+//     }
+//     else{
+//         document.getElementById("fname").value="";
+//     }
+// }

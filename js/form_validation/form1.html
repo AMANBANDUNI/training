@@ -5,31 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
     <script src="form3.js"></script>
+    <style>
+        .div1{
+            border: 2px solid black;
+            padding: 10px;
+            width: 700px;
+        }
+        #btn{
+            padding: 5px;
+            font-size: 1em;
+        }
+    </style>
+    <script>
+        function func1(){
+            document.getElementById("btn").value="Check Validation";
+        }
+    </script>
 </head>
-<body>
+<body onload="func1()">
     <h2><center>Form Validation</center></h2>
     <p><u><b>Enter the Following Details: </b></u></p>
     <br>
-    <div id="form">
-        <form name="myform" action="">
-            First_name: <input type="text" name="fname" id="fn" class="name">
-            &nbsp Last_name: <input type="text" name="lname" id="ln" class="name">
-            <br><br>
-            Email ID: <input type="email" name="email" id="e">
-            <br><br>
-            Password: <input type="password" name="password" id="pswd">
-            <br><br>
-            Phone no.: <input size="10" tabindex="5" name="number" id="no" maxlength="10" onkeyup="tab_index(this,this.value)">
-            <br><br>
-            <div class="dobcontainer">
-            D.O.B.: MM: <input size="2" tabindex="6" id="mm" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)">
-            DD: <input size="2" tabindex="7" id="dd" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)">
-            YY: <input size="4" tabindex="8" id="yy" class="dateofbirth" maxlength="4" onkeyup="tab_index(this,this.value)">
-            </div>
-            <br><br>
-            Registration Id: <input type="text" name="reg_id" id="ri">
-            <br><br>
-            <input type="button" value="Submit" onclick="alert(myfunc())" id="btn">
+    <div class="div1">
+        <form name="myform" action="" class="myfrm">
+            <table id="tbl">
+                <tr>
+                    First_name: <input type="text" name="fname" id="fn" class="name" onkeypress="return onlychr(event)">
+                    &nbsp Last_name: <input type="text" name="lname" id="ln" class="name" onkeypress=" onlychr(event)">
+                </tr>
+                <br><br>
+                <tr>
+                    mail ID: <input type="email" name="email" id="e">
+                </tr>
+                <br><br>
+                <tr>
+                    Password: <input type="password" name="password" id="pswd">
+                </tr>
+                <br><br>
+                <tr>
+                    Phone no.: <input size="10" tabindex="5" name="number" id="no" maxlength="10" onkeyup="tab_index(this,this.value)">
+                </tr>
+                <br><br>
+                <tr>
+                    <div class="dobcontainer">
+                    D.O.B.: MM: <input size="2" tabindex="6" id="mm" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)">
+                    DD: <input size="2" tabindex="7" id="dd" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)">
+                    YY: <input size="4" tabindex="8" id="yy" class="dateofbirth" maxlength="4" onkeyup="tab_index(this,this.value)">
+                    </div>
+                </tr>
+                <br><br>
+                <tr>
+                    Registration Id: <input type="text" name="reg_id" id="ri">
+                </tr>
+                <br><br>
+                <tr>
+                    <input type="button" value="Submit" onclick="alert(myfunc())" id="btn">
+                </tr>
+        </table>
         </form>
     </div>
 </body>
