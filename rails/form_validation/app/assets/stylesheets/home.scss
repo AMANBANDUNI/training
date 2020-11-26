@@ -1,0 +1,22 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+        
+        .div1{
+            border: 2px solid black;
+            padding: 10px;
+            width: 800px;
+            height: 400px;
+        }
+        #btn{
+            padding: 5px;
+            font-size: 1em;
+            border-radius: 5px;
+            position: relative;
+            left: 350px;
+            background-color: navajowhite;
+        }
+        #btn:hover {
+            background-color: aqua;
+            font-size: 22px;
+        }
