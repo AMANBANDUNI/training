@@ -6,17 +6,24 @@
     <title>Form Validation</title>
     <script src="form3.js"></script>
     <style>
-        .div1{
+        body{
             border: 2px solid black;
+            width: 750px;
+            height: 650px
+        }
+        .div1 #tbl{
             padding: 10px;
-            width: 700px;
-            height: 320px;
+            position: absolute;
+            top: 150px;
+        }
+        td{
+            padding: 15px 0 15px 0;
         }
         #btn{
             padding: 5px;
             font-size: 1em;
             border-radius: 5px;
-            position: relative;
+            position: absolute;
             left: 250px;
             background-color: navajowhite;
         }
@@ -35,42 +42,64 @@
     <h2><center>Form Validation</center></h2>
     <p><u><b>Enter the Following Details: </b></u></p>
     <br>
+  
     <div class="div1">
         <form name="myform" action="" class="myfrm">
             <table id="tbl">
                 <tr>
-                    First_name: <input type="text" name="fname" id="fn" class="name" onkeypress="return onlychr(event)">
-                    &nbsp Last_name: <input type="text" name="lname" id="ln" class="name" onkeypress="return onlychr(event)">
+                    <td>
+                        First_name: <input type="text" name="fname" id="fn" class="name" placeholder="Enter First_name" onkeypress="return onlychr(event)">
+                    
+                        &nbsp Last_name: <input type="text" name="lname" id="ln" class="name" placeholder="Enter Last_name" onkeypress="return onlychr(event)">
+                    </td>
                 </tr>
                 <br><br>
+            
                 <tr>
-                    mail ID: <input type="email" name="email" id="e">
+                    <td>
+                        mail ID: <input type="email" name="email" id="e" placeholder="Enter email id">
+                    </td>
                 </tr>
                 <br><br>
+                
                 <tr>
-                    Password: <input type="password" name="password" id="pswd">
+                    <td>
+                        Password: <input type="password" name="password" id="pswd" placeholder="Enter password">
+                    </td>
                 </tr>
                 <br><br>
+                
                 <tr>
-                    Phone no.: <input size="10" tabindex="5" name="number" id="no" maxlength="10" onkeypress="return onlynum(event)" onkeyup="tab_index(this,this.value)">
+                    <td>
+                        Phone no.: <input size="10" tabindex="5" name="number" id="no" maxlength="10" placeholder="Enter Phone no." onkeypress="return onlynum(event)" onkeyup="tab_index(this,this.value)">
+                    </td>    
                 </tr>
                 <br><br>
+                
                 <tr>
-                    <div class="dobcontainer">
-                    D.O.B.: MM: <input size="2" tabindex="6" id="mm" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)">
-                    DD: <input size="2" tabindex="7" id="dd" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)">
-                    YY: <input size="4" tabindex="8" id="yy" class="dateofbirth" maxlength="4" onkeyup="tab_index(this,this.value)">
-                    </div>
+                    <td>
+                        D.O.B.: MM: <input size="2" tabindex="6" id="mm" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)" placeholder="DD">
+                        &nbsp &nbsp 
+                        DD: <input size="2" tabindex="7" id="dd" class="dateofbirth" maxlength="2" onkeyup="tab_index(this,this.value)" placeholder="MM">
+                        &nbsp &nbsp 
+                        YY: <input size="4" tabindex="8" id="yy" class="dateofbirth" maxlength="4" onkeyup="tab_index(this,this.value)" placeholder="YY">
+                    </td>
                 </tr>
                 <br><br>
+                
                 <tr>
-                    Registration Id: <input type="text" name="reg_id" id="ri">
+                    <td>
+                        Registration Id: <input type="text" name="reg_id" id="ri" placeholder="Enter reg_id">
+                    </td>    
                 </tr>
                 <br><br>
+                
                 <tr>
-                    <input type="button" value="Submit" onclick="alert(myfunc())" id="btn">
+                    <td>
+                        <input type="button" value="Submit" onclick="alert(myfunc())" id="btn">
+                    </td>    
                 </tr>
-        </table>
+                </table>
         </form>
     </div>
 </body>
