@@ -170,8 +170,8 @@ function myfunc(){
 }
 function tab_index(elemnt,content){
     if (content.length == elemnt.maxLength ){
-        // console.log(elemnt);
-        // console.log(content);
+        console.log(elemnt);
+        console.log(content);
         next=elemnt.tabIndex;
         if (next<=document.forms[0].elements.length){
             document.forms[0].elements[next].focus();

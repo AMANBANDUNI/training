@@ -1,15 +1,60 @@
 
+document.addEventListener("DOMContentLoaded",() => {
+
+
+const btn = document.querySelector('#btn');
+btn.addEventListener('click',()=>{
+    let alrt = myfunc()
+    alert (alrt)
+})
+
+let num = document.querySelector('#no');
+num.addEventListener('keyup',()=>{
+    let max = document.getElementById("no").maxLength;
+    let ti = document.getElementById("no").tabIndex;
+    let value = document.getElementById("no").value;
+    tab_index(max,ti,value);
+})
+
+let dob = document.querySelectorAll('.dateofbirth');
+dob[0].addEventListener('keyup',()=>{
+    let max = document.getElementById("mm").maxLength;
+    let ti = document.getElementById("mm").tabIndex;
+    let value = document.getElementById("mm").value;
+    tab_index(max,ti,value);
+})
+dob[1].addEventListener('keyup',()=>{
+    let max = document.getElementById("dd").maxLength;
+    let ti = document.getElementById("dd").tabIndex;
+    let value = document.getElementById("dd").value;
+    tab_index(max,ti,value);
+})
+dob[2].addEventListener('keyup',()=>{
+    let max = document.getElementById("yy").maxLength;
+    let ti = document.getElementById("yy").tabIndex;
+    let value = document.getElementById("yy").value;
+    tab_index(max,ti,value);
+})
+
+
+// var name = document.querySelectorAll('.name');
+// name[0].addEventListener('keypress',()=>{
+//     onlychr();
+// })
+// name[1].addEventListener('keypress',onlychr)
+
+
 function myfunc(){
-    var fname = document.myform.fname.value;
-    var lname = document.myform.lname.value;
-    var email = document.myform.email.value;
-    var pwd = document.myform.password.value;
-    var ph = document.myform.number.value;
-    // var dob = document.myform.dateofbirth.value;
-    var month = parseInt(document.getElementById("mm").value);
-    var date = parseInt(document.getElementById("dd").value);
-    var year = parseInt(document.getElementById("yy").value);
-    var rid = document.myform.reg_id.value;
+    let fname = document.myform.fname.value;
+    let lname = document.myform.lname.value;
+    let email = document.myform.email.value;
+    let pwd = document.myform.password.value;
+    let ph = document.myform.number.value;
+    // let dob = document.myform.dateofbirth.value;
+    let month = parseInt(document.getElementById("mm").value);
+    let date = parseInt(document.getElementById("dd").value);
+    let year = parseInt(document.getElementById("yy").value);
+    let rid = document.myform.reg_id.value;
     console.log(fname+" "+lname+" "+email+" "+pwd+" "+ph+" "+rid+" "+month+" "+date+" "+year);
     console.log(typeof(fname)+" "+typeof(lname)+" "+typeof(email)+" "+typeof(pwd)+" "+typeof(ph)+" "+typeof(rid)+" "+typeof(month));
 
@@ -34,7 +79,7 @@ function myfunc(){
         return   ("Enter your first and last name");
     }
     if (email!=""){
-        var mailformat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let mailformat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(email.match(mailformat)){
 
         }
@@ -47,7 +92,7 @@ function myfunc(){
     }
     if (pwd !=""){
         if (pwd.length>5 && pwd.length <17){
-            var pwdformat = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+            let pwdformat = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
             if (pwd.match(pwdformat)){
 
             }
@@ -118,10 +163,10 @@ function myfunc(){
     else{
         return "Enter complete date of birth!";
     }
-    var y = new Date;
-    var current_year =y.getFullYear();
-    var current_month= y.getMonth()+1;
-    var current_date=y.getDate();
+    let y = new Date;
+    let current_year =y.getFullYear();
+    let current_month= y.getMonth()+1;
+    let current_date=y.getDate();
     console.log("current m= "+current_month+"current d= "+ current_date+ "current y= "+current_year);
     if ((current_year-year)<18){
         return "you are not 18 +";
@@ -140,7 +185,7 @@ function myfunc(){
     }
     else{}
     if (rid!=""){
-        var rid_format= /^[A-Z][A-Za-z0-9_-]{5,15}$/;
+        let rid_format= /^[A-Z][A-Za-z0-9_-]{5,15}$/;
         if (rid.match(rid_format)){
 
         }
@@ -157,61 +202,50 @@ function myfunc(){
 }
 
 
-function tab_index(elemnt,content){
-    if (content.length == elemnt.maxLength ){
-        // console.log(elemnt);
-        // console.log(content);
-        next=elemnt.tabIndex;
+function tab_index(mx,tai,val){
+    // console.log(event.key);
+    // console.log(event.keyCode);
+    // console.log(mx);
+    // console.log(tai);
+    // console.log(val.length);
+    if (val.length == mx ){
+        // console.log(event);
+        console.log(val.length);
+        next=tai;
+        console.log(mx);
+        console.log(next);
+
         if (next<=document.forms[0].elements.length){
             document.forms[0].elements[next].focus();
         }
     }
 }
-// function onlychar(){
-//     var charCode = event.keyCode;
-//     // console.log(charCode);
-//     // var charcode = event.key;
-//     // console.log(charcode);
-//     if ((charCode>64 && charCode<91) || (charCode>96 && charCode<123 || charCode==8))
-//         return true;
-//     else
-//         return false;
-// }
-
-function onlychr(evnt){
-    // console.log(evnt);
-    var charCde = evnt.keyCode;
-    // console.log(charCde);
-    // var charcode = evnt.key;
-    // console.log(charcode);
-    if (charCde>=65 && charCde<=90 || charCde>=97 && charCde<=122 || charCde==8){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
 
 // function onlychr(evnt){
-//     console.log(evnt);
-//     var charCde = evnt.keyCode;
-//     console.log(charCde);
-//     var charcode = evnt.key;
-//     console.log(charcode);
+//     console.log(event);
+//     console.log(event.key);
+//     console.log(event.keyCode);
+//     let charCde = event.keyCode;
+//     // console.log(charCde);
+//     // let charcode = evnt.key;
+//     // console.log(charcode);
 //     if (charCde>=65 && charCde<=90 || charCde>=97 && charCde<=122 || charCde==8){
+//         document.querySelector.input=key;
+//     }
+//     else{
+//         document.querySelector.input="";
+//     }
+// }
+
+
+// function onlynum(){
+//     let charcode = event.keyCode;
+//     if(charcode>=48 && charcode<=57 || charcode==8){
 //         return true;
 //     }
 //     else{
-//         document.getElementById("fname").value="";
+//         return false;
 //     }
 // }
 
-function onlynum(){
-    var charcode = event.keyCode;
-    if(charcode>=48 && charcode<=57 || charcode==8){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
+})
