@@ -26,7 +26,7 @@ development:
   database: company_database
 
   username: aman
-  password: changeit
+  password: tech@123
 
   host: localhost
 
