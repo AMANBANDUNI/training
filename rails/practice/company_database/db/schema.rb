@@ -10,32 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_115351) do
+ActiveRecord::Schema.define(version: 2020_12_02_120130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "branches", force: :cascade do |t|
-    t.string "branch_name"
-    t.integer "mgr_id"
-    t.date "mgr_start_date"
-    t.bigint "employee_id"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["employee_id"], name: "index_branches_on_employee_id"
   end
 
   create_table "employees", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.date "birth_date"
-    t.string "gender"
+    t.string "name"
+    t.string "dob", limit: 10
+    t.string "gender", limit: 1
+    t.string "mail"
     t.integer "salary"
-    t.integer "super_id"
-    t.integer "branch_id"
+    t.bigint "branch_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["branch_id"], name: "index_employees_on_branch_id"
   end
 
-  add_foreign_key "branches", "employees"
+  add_foreign_key "employees", "branches"
 end
