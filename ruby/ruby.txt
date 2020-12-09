@@ -224,6 +224,10 @@ c) '\t' => To give tab space.
 				e.g.) a.collect {|x| x + "!" }
 			xxi) .downto <value> do |i| => 
 				e.g.) n.downto 1 do |i|
+			
+			xxii) .match() =>  my_string.match("widesky_light")
+
+			xxiii) .sprintf() => Ruby provides sprintf() function that can be Used to format prices.
 
 
 			

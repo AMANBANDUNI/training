@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_020055) do
+ActiveRecord::Schema.define(version: 2020_12_04_032049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,8 +33,28 @@ ActiveRecord::Schema.define(version: 2020_12_03_020055) do
     t.index ["physician_id"], name: "index_appointments_on_physician_id"
   end
 
+  create_table "assemblies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "assemblies_parts", id: false, force: :cascade do |t|
+    t.bigint "assembly_id"
+    t.bigint "part_id"
+    t.index ["assembly_id"], name: "index_assemblies_parts_on_assembly_id"
+    t.index ["part_id"], name: "index_assemblies_parts_on_part_id"
+  end
+
   create_table "branches", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "document_name"
+    t.string "written_by"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -51,6 +71,22 @@ ActiveRecord::Schema.define(version: 2020_12_03_020055) do
     t.index ["branch_id"], name: "index_employees_on_branch_id"
   end
 
+  create_table "paragraphs", force: :cascade do |t|
+    t.string "paragraph_name"
+    t.bigint "section_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "document_id"
+    t.index ["document_id"], name: "index_paragraphs_on_document_id"
+    t.index ["section_id"], name: "index_paragraphs_on_section_id"
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.string "part_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -63,6 +99,14 @@ ActiveRecord::Schema.define(version: 2020_12_03_020055) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string "section_name"
+    t.bigint "document_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["document_id"], name: "index_sections_on_document_id"
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -70,4 +114,6 @@ ActiveRecord::Schema.define(version: 2020_12_03_020055) do
   end
 
   add_foreign_key "employees", "branches"
+  add_foreign_key "paragraphs", "documents"
+  add_foreign_key "paragraphs", "sections"
 end
