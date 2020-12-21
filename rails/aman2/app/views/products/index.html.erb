@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <h1>Products#index</h1>
 <p>Find me in app/views/product/index.html.erb</p>
 
@@ -24,6 +25,8 @@
           <td><%= product.description %></td>
           <td><%= product.price %></td>
           <td class="image"><%= link_to (product.image_url) %></td>
+
+          <td><%= link_to 'edit', edit_product_path(product) %></td>
 
         </tr>
       <% end %>
