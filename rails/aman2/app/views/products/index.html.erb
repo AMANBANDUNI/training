@@ -1,0 +1,35 @@
+<h1>Products#index</h1>
+<p>Find me in app/views/product/index.html.erb</p>
+
+<%= form_tag  do %>
+
+<br>
+<br>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Image url</th>
+        <!-- <th colspan="3"></th> -->
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product| %>
+          <td><%= product.name %></td>
+          <td><%= product.color %></td>
+          <td><%= product.description %></td>
+          <td><%= product.price %></td>
+          <td class="image"><%= link_to (product.image_url) %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'New Product', new_product_path %>
+
+<% end %>
