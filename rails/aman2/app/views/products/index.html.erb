@@ -14,6 +14,7 @@
         <th>Description</th>
         <th>Price</th>
         <th>Image url</th>
+        <th>Product Type</th>
         <!-- <th colspan="3"></th> -->
       </tr>
     </thead>
@@ -23,10 +24,28 @@
           <td><%= product.name %></td>
           <td><%= product.color %></td>
           <td><%= product.description %></td>
-          <td><%= product.price %></td>
+          <td class="price"><%= product.price %></td>
           <td class="image"><%= link_to (product.image_url) %></td>
 
+          <!-- <td class="protype"></td> -->
+
+          <h1><% 5 > 6 %></h1>
+          <td>
+            <% if product.price.to_i < 100 %>
+              very small
+            <% elsif (product.price >= 100 && product.price < 500) %>
+              small
+            <% elsif (product.price>=500 && product.price < 1000) %>
+              medium
+            <% elsif (product.price>=100 && product.price < 1500) %>
+              large
+            <% elsif (product.price >= 1500) %>
+              ex large
+            <% end %>
+          </td>
+
           <td><%= link_to 'edit', edit_product_path(product) %></td>
+          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
         </tr>
       <% end %>
