@@ -1,32 +1,32 @@
-<%= form_with model: @product do |form| %>
+<%= form_tag "/products" do %>
   
   <br>
   <div>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= label_tag "Name" %>
+  <%= text_field_tag "product[name]" %>
   </div>
 
   <br>
   <div>
-  <%= form.label :description %>
-  <%= form.text_field :description %>
+  <%= label_tag "Description" %>
+  <%= text_field_tag "product[description]" %>
   </div>
 
   <br>
   <div>
-  <%= form.label :price %>
-  <%= form.text_field :price %>
+  <%= label_tag "Price" %>
+  <%= text_field_tag "product[price]" %>
   </div>
 
   <br>
   <div>
-  <%= form.label :image_url %>
-  <%= form.text_field :image_url %>
+  <%= label_tag "Image_url" %>
+  <%= text_field_tag "product[image_url]" %>
   </div>
 
   <br>
   <div>
-  <%= form.submit %>
+  <%= submit_tag "create product" %>
   </div>
   <br>
   
