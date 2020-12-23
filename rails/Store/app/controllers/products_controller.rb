@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   def create
 	  @product = Product.new(product_params)
 	  if @product.save
-      ProductMailer.product_confirmation.deliver
+      ProductMailer.product_confirmation(@product).deliver
 	    redirect_to @product, notice: "Product created successfully."
 	  else
 	    render :new
