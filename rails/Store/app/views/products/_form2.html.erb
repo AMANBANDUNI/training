@@ -1,0 +1,33 @@
+<%= form_tag "/products" do %>
+  
+  <br>
+  <div>
+    <%= label_tag "Name" %>
+    <%= text_field_tag "product[name]" %>
+  </div>
+
+  <br>
+  <div>
+    <%= label_tag "Description" %>
+    <%= text_field_tag "product[description]" %>
+  </div>
+
+  <br>
+  <div>
+    <%= label_tag "Price" %>
+    <%= text_field_tag "product[price]" %>
+  </div>
+
+  <br>
+  <div>
+    <%= label_tag "Image_url" %>
+    <%= text_field_tag "product[image_url]" %>
+  </div>
+
+  <br>
+  <div>
+    <%= submit_tag "create product" %>
+  </div>
+  <br>
+  
+<% end %>
