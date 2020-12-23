@@ -1,15 +1,15 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
-
   def index
 	@products = Product.all
   end
 
   def show
+  	@product = Product.find(params[:id])
   end
 
   def edit
+  	@product = Product.find(params[:id])
   end
 
   def new
@@ -26,41 +26,32 @@ class ProductsController < ApplicationController
 
   def create
 	@product = Product.new(product_params)
-	respond_to do |format|
-	  if @product.save
-		ProductMailer.product_confirmation(@product).deliver
-		format.html { redirect_to @product, notice: "Product created succefully."}
-	  else
-		format.html { render :new}
-	  end
-	end	
+	if @product.save
+	  redirect_to @product, notice: "Product created successfully."
+	else
+	  render :new
+	end
   end
 
   def update
-	respond_to do |format|
-	  if @product.update(product_params)
-		format.html {redirect_to @product, notice: "Product updated succefully." }
-	  else
-		format.html {render :edit }
-	  end
-	end
+  	@product = Product.find(params[:id])
+  	if @product.update(product_params)
+  	  redirect_to @product, notice: "Product updated successfully"
+  	else
+  	  render :edit
+  	end
   end
 
   def destroy
+  	@product = Product.find(params[:id])
 	@product.destroy
-	  respond_to do |format|
-		format.html { redirect_to products_path, notice: "Product was succefully deleted." }
-	end
+	redirect_to products_path, notice: "Product was successfully deleted."
   end
 
-private
+  private
 
-  def set_product
-	@product = Product.find(params[:id])
-  end
+    def product_params
+	  params.require(:product).permit(:name, :description, :price, :image_url)
+    end
 
-  def product_params
-	params.require(:product).permit(:name, :description, :price, :image_url)
-  end
-  
 end
