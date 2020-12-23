@@ -1,5 +1,7 @@
 class ProductMailer < ApplicationMailer
 
+  # default from: 'no-reply@example.com'
+
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -10,7 +12,7 @@ class ProductMailer < ApplicationMailer
     @product = product
 
 
-    mail to: "abanduni.5@gmail.com", subject: "Product created confirmation"
+    mail to: "amanbanduni27@gmail.com", subject: "Product created confirmation"
     # mail to: "to@example.org", subject: "Product created confirmation"
   end
 end
