@@ -1,7 +1,11 @@
 Product#product_confirmation
 
-# <%= @greeting %>, find me in app/views/product_mailer/product_confirmation.text.erb
+<%= @greeting %>, find me in app/views/product_mailer/product_confirmation.text.erb
 
-<%= @product.name %>
+
+Product Name: <%= @product.name %>
+Product Description: <%= @product.description %>
+Product price: <%= @product.price %>
+Product image_url: <%= @product.image_url %>
 
 product saved succefully.
