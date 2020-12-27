@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   def create
 	  @product = Product.new(product_params)
 	  if @product.save
-      ProductMailer.product_confirmation(@product).deliver
+      # ProductMailer.product_confirmation(@product).deliver
 	    redirect_to @product, notice: "Product created successfully."
 	  else
 	    render :new
@@ -48,6 +48,11 @@ class ProductsController < ApplicationController
   	@product = Product.find(params[:id])
 	  @product.destroy
 	  redirect_to products_path, notice: "Product was successfully deleted."
+  end
+
+  def multiple_destroy
+    Product.where(id: params[:product_ids]).destroy_all
+    redirect_to products_path, notice: "Selected products deleted successfully"
   end
 
   def product_params
