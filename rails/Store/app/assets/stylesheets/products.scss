@@ -4,7 +4,7 @@
 .btn{
   font-size: 1.2em;
   position: absolute;
-  top: 65.5%;
+  top: 65%;
   left: 35%;
 }
 
@@ -13,4 +13,13 @@
   color: white;
   background-color: red;
   border-radius: 20px
+}
+
+#newproduct{
+  color: black;
+  padding: 2px;
+  font-size: 1.2em;
+  background-color: #EEEEEE;
+  text-decoration: none;
+  border: 1px solid black;
 }
