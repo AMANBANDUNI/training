@@ -4,8 +4,8 @@
 #multi_delete_btn{
   font-size: 1.2em;
   position: absolute;
-  top: 438px;
-  left: 35%;
+  top: 355px;
+  left: 560px;
 }
 
 #multi_delete_btn:hover{
@@ -32,6 +32,7 @@
 .btn{
   color: black;
   padding: 1px;
+  padding: 0 5px 0 5px;
   background-color: #EEEEEE;
   text-decoration: none;
   border: 1px solid black;
@@ -44,4 +45,9 @@
 
 #red:hover{
   background-color: red;
+}
+
+#pagination{
+  position: absolute;
+  left: 300px;
 }
