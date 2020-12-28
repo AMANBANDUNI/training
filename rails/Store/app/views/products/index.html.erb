@@ -22,17 +22,23 @@
 	
     <tbody>
   	  <% @products.each do |product| %>
-	    <tr>
-	      <td><%= check_box_tag "product_ids[]", product.id, checked = false ,class: "mycheck" %></td>
-	      <td><%= product.name %></td>	
-	      <td><%= product.description %></td>	
-	      <td><%= product.price %></td>	
-	      <td><%= product.image_url %></td>	
+  	    <% if product.deleted? %>
+	      <tr class="softdelete">
+	    <% else %>
+	      <tr>
+	    <% end %>
+	        <td><%= check_box_tag "product_ids[]", product.id, checked = false ,class: "mycheck" %></td>
+	        <td><%= product.name %></td>	
+	        <td><%= product.description %></td>	
+	        <td><%= product.price %></td>	
+	        <td><%= product.image_url %></td>	
 
-	      <td><%= link_to 'edit', edit_product_path(product) %></td>
-	      <td><%= link_to 'delete', product, method: :delete, data: { confirm: "Are you sure? "} %></td>
+	        <td><%= link_to 'edit', edit_product_path(product),class: 'btn' %></td>
+	        <td><%= link_to 'delete', product, method: :delete, data: { confirm: "Are you sure? "},class: 'btn' %></td>
+	        <td><%= link_to 'soft delete', "/soft-delete/#{product.id}",class: 'btn' %></td>
+	        <td><%= link_to 'un delete', "un-delete/#{product.id}",class: 'btn' %></td>
 
-	    </tr>
+	      </tr>
 	  <% end %>
     </tbody>
   </table>
@@ -44,7 +50,7 @@
   <br><br>
   <%= link_to 'Create New Product using form_tag', "/new2/" %> -->
   <div>
-  	&nbsp &nbsp <%= submit_tag "Multi-Delete", class: 'btn' %>
+  	&nbsp &nbsp <%= submit_tag "Multi-Delete", id: 'multi_delete_btn' %>
   </div>
 
 <% end %>
