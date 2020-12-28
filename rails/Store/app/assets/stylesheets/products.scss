@@ -1,14 +1,14 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.btn{
+#multi_delete_btn{
   font-size: 1.2em;
   position: absolute;
-  top: 435px;
+  top: 460px;
   left: 35%;
 }
 
-.btn:hover{
+#multi_delete_btn:hover{
   font-size: 1.5em;
   color: white;
   background-color: red;
@@ -19,6 +19,19 @@
   color: black;
   padding: 2px;
   font-size: 1.2em;
+  background-color: #EEEEEE;
+  text-decoration: none;
+  border: 1px solid black;
+}
+
+.softdelete{
+  color: red;
+  text-decoration: line-through;
+}
+
+.btn{
+  color: black;
+  padding: 1px;
   background-color: #EEEEEE;
   text-decoration: none;
   border: 1px solid black;
