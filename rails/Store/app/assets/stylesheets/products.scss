@@ -4,7 +4,7 @@
 #multi_delete_btn{
   font-size: 1.2em;
   position: absolute;
-  top: 460px;
+  top: 438px;
   left: 35%;
 }
 
@@ -35,4 +35,13 @@
   background-color: #EEEEEE;
   text-decoration: none;
   border: 1px solid black;
+}
+
+.btn:hover{
+  background-color: lightgreen;
+  font-size: 1.2em;
+}
+
+#red:hover{
+  background-color: red;
 }
