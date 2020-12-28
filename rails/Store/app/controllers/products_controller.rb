@@ -50,6 +50,18 @@ class ProductsController < ApplicationController
 	  redirect_to products_path, notice: "Product was successfully deleted."
   end
 
+  def soft_delete
+    @product = Product.find(params[:id])
+    @product.update(deleted: true)
+    redirect_to products_path
+  end
+
+  def un_delete
+    @product = Product.find(params[:id])
+    @product.update(deleted: false)
+    redirect_to products_path
+  end
+
   def multiple_destroy
     Product.where(id: params[:product_ids]).destroy_all
     redirect_to products_path, notice: "Selected products deleted successfully"
