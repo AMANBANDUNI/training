@@ -7,9 +7,9 @@ class Product < ApplicationRecord
   validate :name_limits
 
   before_validation :name_cant_be_empty
-
-
-  private
+  
+  before_save :upcase
+  
 
   def self.search(search)
   	if search
@@ -27,6 +27,11 @@ class Product < ApplicationRecord
 
   def name_cant_be_empty
     self.name = "Product_name" if name.blank?
+  end
+
+  def upcase
+    self.name = self.name.upcase
+    #self.name = self.name.capitalize
   end
 
 
