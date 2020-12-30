@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded',() => {
 
   
   let check = document.querySelector('.checkall');
-  check.addEventListener('click',() => {
+  check.addEventListener('click',(e) => {
+    console.log(e.target.value)
     click? check_all() : uncheck_all();
   });
 
