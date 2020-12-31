@@ -34,3 +34,10 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+
+# Customed by me | Ignore api_keys.txt files to hide its credentials
+/api_keys.txt
+
+# Ignore .env used for storing keys and access tokens
+.env
