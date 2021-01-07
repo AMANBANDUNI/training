@@ -10,11 +10,11 @@ Rails.application.routes.draw do
         sessions:         'api/v1/sessions'
       }
 
-      # devise_scope :user do
-      #   get "/" => "home#index"
-      # end
+      devise_scope :user do
+        get "/" => "home#index"
+      end
 
-      root to: "home#index"
+      # root to: "home#index"
     end
   end
 
