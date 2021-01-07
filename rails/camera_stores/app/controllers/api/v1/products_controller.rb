@@ -2,7 +2,7 @@ module Api
   module V1
     class ProductsController < ApplicationController
       def index
-        Products = Product.order('created_at ASC')
+        products = Product.order('created_at ASC')
         render json: {status: 'SUCCESS', message: 'Loaded Products', data: categories}, status: :ok
       end
 
