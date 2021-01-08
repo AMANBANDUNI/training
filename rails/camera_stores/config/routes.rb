@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
       get 'users/home' => 'home#show', :as => :user_path
 
+      get 'users/products/:id/category' => 'products#show_products_of_specific_category', :as => :user_category_product_path
+
       # get 'users/home' => 'home#show', as => :user_path
 
       # get 'users/base' => 'base#current_user', :as => :user_path
