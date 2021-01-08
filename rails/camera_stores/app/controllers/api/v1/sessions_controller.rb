@@ -4,9 +4,10 @@ class Api::V1::SessionsController < Devise::SessionsController
 
     if user && user.valid_password?(sign_in_params[:password])
       token = JWT.encode({user_id: user.id}, 's3cr3t')
-      render json: token.to_json
+      # puts "username: #{token}"
+      render json: {username: token.to_json}
     else
-    render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
+      render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
     end
   end
 

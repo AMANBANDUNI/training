@@ -1,9 +1,11 @@
 module Api
   module V1
     class ProductsController < ApplicationController
+      before_action :permit_all_params
+
       def index
         products = Product.order('created_at ASC')
-        render json: {status: 'SUCCESS', message: 'Loaded Products', data: categories}, status: :ok
+        render json: {status: 'SUCCESS', message: 'Loaded Products', data: products}, status: :ok
       end
 
       def show
@@ -40,6 +42,11 @@ module Api
       def product_params
         params.permit(:name, :category_id, :description, :price, :make)
       end
+
+      def permit_all_params
+        params.permit!
+      end
+
     end
   end
 end

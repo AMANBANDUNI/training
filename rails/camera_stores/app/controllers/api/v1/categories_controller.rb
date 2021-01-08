@@ -1,6 +1,9 @@
 module Api
   module V1
   	class CategoriesController < ApplicationController
+
+      before_action :permit_all_params
+
   	  def index
   	  	categories = Category.order('created_at ASC')
   	  	render json: {status: 'SUCESS', message: 'Loaded Categories', data: categories}, status: :ok
@@ -27,7 +30,7 @@ module Api
   	  end
 
   	  def update
-  	    category = Category.find(params[:id])
+  	    category = Catetegorgory.find(params[:id])
   	    if category.update(category_params)
   	      render json: {status: 'SUCCESS', message: 'category updated', data: category}, status: :ok
   	    else
@@ -40,6 +43,11 @@ module Api
   	  def category_params
   	  	params.permit(:name, :camera_type, :model)
   	  end
+
+     def permit_all_params
+       params.permit!
+     end
+      
   	end
   end
 end
