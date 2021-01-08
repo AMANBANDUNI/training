@@ -6,7 +6,7 @@ module Api
 
   	  def index
   	  	categories = Category.order('created_at ASC')
-  	  	render json: {status: 'SUCESS', message: 'Loaded Categories', data: categories}, status: :ok
+  	  	render json: {status: 'SUCCESS', message: 'Loaded Categories', data: categories}, status: :ok
   	  end
 
   	  def show
@@ -30,7 +30,7 @@ module Api
   	  end
 
   	  def update
-  	    category = Catetegorgory.find(params[:id])
+  	    category = Category.find(params[:id])
   	    if category.update(category_params)
   	      render json: {status: 'SUCCESS', message: 'category updated', data: category}, status: :ok
   	    else

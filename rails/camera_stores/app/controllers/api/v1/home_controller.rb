@@ -11,8 +11,14 @@ class Api::V1::HomeController < ApplicationController
     # render json: current_user.find(id: @current_user_id)
   end
 
-  def add_product
-  end	
+  # def add_product
+  # 	User.add_product_to_cart()
+  # end
+
+  def show_products
+  	@user = User.find_by(id: @current_user_id)
+  	render json: {data: @user.cart.products}
+  end
 
   private 
 
