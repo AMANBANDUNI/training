@@ -13,6 +13,15 @@ module Api
         render json: {status: 'SUCCESS', message: 'Loaded product', data: product}, status: :ok
       end
 
+      def show_products_of_specific_category
+        products = Product.all
+        if Product.find_by(category_id: params[:id])
+          render json: {status: 'SUCCESS', message: 'Loaded users Products', data: products}, status: :ok
+        else 
+          render json: {status: 'FAILURE', message: 'No products found.'}, status: :unprocessable_entity
+        end
+      end
+
       def create
         product = Product.new(product_params)
         if product.save
