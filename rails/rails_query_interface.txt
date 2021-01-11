@@ -215,3 +215,52 @@ For example:
 
 
 
+7) HAVING:
+  SQL uses the HAVING clause to specify conditions on the GROUP BY fields. You can add the HAVING clause to the SQL fired by the 
+  Model.find by adding the having method to the find.
+ 
+  For example: 
+  > ap Product.select("price").group('price').having("price>?",62000)
+  The SQL equivalent of the above is: SELECT "products"."price" FROM "products" GROUP BY "products"."price" HAVING (price>62000)
+  
+  #or
+  > ap Product.select("price as Total_cost").group('price').having("price>?",62000)
+  The SQL equivalent of the above is: SELECT price as Total_cost FROM "products" GROUP BY "products"."price" HAVING (price>62000)
+
+
+  > ap Product.select("category_id,sum(price) as total_cost").group("category_id").having("sum(price) > ?",62000)
+  The SQL equivalent of the above is: SELECT category_id,sum(price) as total_cost FROM "products" GROUP BY "products"."category_id" 
+				      HAVING (sum(price) > 62000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8) Scope: 
+  Scoping allows you to specify commonly-used queries which can be referenced as method calls on the association objects or models. 
+  With these scopes, you can use every method previously covered such as where, joins and includes. All scope bodies should return an 
+  ActiveRecord::Relation or nil to allow for further methods (such as other scopes) to be called on it.
+
+  8.1) To define a simple scope, we use the scope method inside the class, passing the query that we'd like to run when this scope is called:
+
+  # Scope mentioned in the product model.
+  scope :min_price, -> { where("price > 50000") }
+  # query will be: 
+  > ap Product.min_price
+
+  8.2) Passing in arguments
+  You can parse the value to the scope also.
+  # Scope in the Model will be 
+  scope :min_price, ->(amt) { where("price > ?",amt) }
+  # Query will be 
+  > ap Product.min_price(62000)
