@@ -1,0 +1,63 @@
+1) Retrieving a Single Object
+  Active Record provides several different ways of retrieving a single object.
+
+1.1 find
+  Using the find method, you can retrieve the object corresponding to the specified primary key that matches any supplied options. 
+For example:
+
+# Find the product with product id = 2.
+
+> ap Product.find(2)
+
+  The SQL equivalent of the above is:
+
+  SELECT * FROM products WHERE (products.id = 2) LIMIT 1
+
+  Note: The find method will raise an ActiveRecord::RecordNotFound exception if no matching record is found.
+
+> ap Product.find([1,3])
+
+  The SQL equivalent of the above is:
+
+  SELECT * FROM products WHERE (products.id IN (1,3))
+
+1.2 find_by
+  Using the find method, you can retrieve the object corresponding to the specified primary key that matches any supplied options.
+  For example:
+
+# Find one product detail whose description = 'camera'
+  > ap Product.find_by(description: "camera")
+
+  This is equivalent to:
+  > ap Product.where(description: "camera").take
+
+  Note: The find method will not raise an ActiveRecord::RecordNotFound exception, if no matching record is found it will return nil.
+
+  The find_by! method behaves exactly like find_by, except that it will raise ActiveRecord::RecordNotFound if no matching record is found. 
+  For example:
+
+  > ap Product.where(description: "description").take!	  ||	> ap Product.find_by!(description: "description")
+ 
+  ActiveRecord::RecordNotFound
+
+
+
+2) Conditions:
+
+  The where method allows you to specify conditions to limit the records returned, representing the WHERE-part of the SQL statement. 
+  Conditions can either be specified as a string, array, or hash.
+
+
+  > ap Product.where("description =?","camera")
+
+  The SQL equivalent of the above is:
+  SELECT "products".* FROM "products" WHERE (description ='camera')
+
+
+  #or  
+  > ap Product.where(description: "camera")
+  #or
+  > ap Product.where("description"=>"camera")
+
+  
+
