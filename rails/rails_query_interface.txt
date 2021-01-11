@@ -83,5 +83,135 @@ For example:
     The SQL equivalent of the above is:
     SELECT "products".* FROM "products" WHERE "products"."id" NOT IN ($1, $2)  [["id", 2], ["id", 3]]
 
+# CLAUSES   
+
+3) Ordering :
+  Note: By default it order by id and in Ascending order.
+
+  > ap Product.order(:created_at)
+  The SQL equivalent of the above is: SELECT "products".* FROM "products" ORDER BY created_at
+  #or
+  > ap Product.order("created_at")
+  The SQL equivalent of the above is: SELECT "products".* FROM "products" ORDER BY "products"."created_at" ASC
+
+  You could specify ASC/DESC as well:
+
+  > ap Product.order(created_at: :desc)
+  The SQL equivalent of the above is: SELECT "products".* FROM "products" ORDER BY "products"."created_at" DESC
+
+  > ap Product.order("created_at desc")
+  The SQL equivalent of the above is: SELECT "products".* FROM "products" ORDER BY created_at desc
+
+
+
+
+  Ordering by multiple fields:
+
+    
+    > ap Product.order(name: :asc,created_at: :desc)
+    The SQL equivalent of the above is: SELECT "products".* FROM "products" ORDER BY "products"."name" ASC, "products"."created_at" DESC
+
+    #or
+    > ap Product.order(:name,created_at: :desc)
+    The SQL equivalent of the above is: SELECT "products".* FROM "products" ORDER BY "products"."name" ASC, "products"."created_at" DESC
+
+    #or
+    > ap Product.order("name asc, created_at desc")
+    The SQL equivalent of the above is: SELECT "products".* FROM "products" ORDER BY name asc, created_at desc
+ 
+    #or
+    > ap Product.order("name asc","created_at desc")
+    The SQL equivalent of the above is: SELECT "products".* FROM "products" ORDER BY name asc, created_at desc
+
    
+
+4) Selecting Specific Fields:
+
+  By default, Model.find selects all the fields from the result set using select *.
+
+  To select only a subset of fields from the result set, you can specify the subset via the select method.
+
+  For e.g.) To select only name and description column.
+
+  > ap Product.select(:name,:description)
+  The SQL equivalent of the above is: SELECT "products"."name", "products"."description" FROM "products"
+
+  #or
+  > ap Product.select("name,description")
+  The SQL equivalent of the above is: SELECT name,description FROM "products"
+
+
+
+  4.1) Distinct
+    If you would like to only grab a single record per unique value in a certain field, you can use distinct:
+
+
+    > ap Product.select(:description).distinct
+    #or
+    > ap Product.select("description").distinct
+    The SQL equivalent of the above is: SELECT DISTINCT "products"."description" FROM "products".
+
+
+    Note: You can also remove the uniqueness constraint:
+      
+      # Returns unique description
+      > ap query = Product.select(:description).distinct
+      The SQL equivalent of the above is: SELECT DISTINCT "products"."description" FROM "products"
+      
+      # Returns all descriptions, even if there are duplicates
+      > ap query.distinct(false)
+      The SQL equivalent of the above is: SELECT "products"."description" FROM "products"
+
+
+5) Limit and Offset:
+  To apply LIMIT to the SQL fired by the Model.find, you can specify the LIMIT using limit and offset methods on the relation.
+
+  You can use limit to specify the number of records to be retrieved, and use offset to specify the number of records to skip before 
+  starting to return the records. For example
+
+  > ap Product.limit(3)
+  will return a maximum of 3 products and because it specifies no offset it will return the first 3 in the table.
+  The SQL equivalent of the above is: SELECT "products".* FROM "products" LIMIT $1  [["LIMIT", 3]]
+
+    
+  Adding Offset:
+  > ap Product.limit(3).offset(1)
+  The SQL equivalent of the above is: SELECT "products".* FROM "products" LIMIT $1 OFFSET $2  [["LIMIT", 3], ["OFFSET", 1]]
+
+
+
+6) Group:
+  To apply a GROUP BY clause to the SQL fired by the finder, you can use the group method.
+  
+  For e.g.) To find out how many distinct categories there are:
+
+  > ap Product.select("category_id, count('category_id')").group("category_id")
+  The SQL equivalent of the above is: SELECT category_id, count('category_id') FROM "products" GROUP BY "products"."category_id"
+  
+  Output:
+        [
+	    [0] #<Product:0x00005579172e1d10> {
+	                 "id" => nil,
+	        "category_id" => 1,
+	              "count" => 2
+	    },
+	    [1] #<Product:0x00005579172e1c20> {
+	                 "id" => nil,
+	        "category_id" => 2,
+	              "count" => 2
+	    }
+	]
+
+  #Another short query for this
+  > ap Product.group('category_id').count
+  The SQL equivalent of the above is: SELECT COUNT(*) AS count_all, "products"."category_id" AS products_category_id FROM "products" 
+  GROUP BY "products"."category_id"
+  
+  Output:
+	{
+	    1 => 2,
+	    2 => 2
+	}
+
+
 
