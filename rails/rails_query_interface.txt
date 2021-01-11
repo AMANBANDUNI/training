@@ -47,17 +47,41 @@ For example:
   The where method allows you to specify conditions to limit the records returned, representing the WHERE-part of the SQL statement. 
   Conditions can either be specified as a string, array, or hash.
 
+  2.1) 
+    > ap Product.where("description =?","camera")
 
-  > ap Product.where("description =?","camera")
-
-  The SQL equivalent of the above is:
-  SELECT "products".* FROM "products" WHERE (description ='camera')
+    The SQL equivalent of the above is:
+    SELECT "products".* FROM "products" WHERE (description ='camera')
 
 
-  #or  
-  > ap Product.where(description: "camera")
-  #or
-  > ap Product.where("description"=>"camera")
+    #or  
+    > ap Product.where(description: "camera")
+    #or
+    > ap Product.where("description"=>"camera")
 
-  
+  2.2) AND, OR, NOT conditions
+
+    > ap Product.where("description= :name OR category_id= :id",{name: "camera",id: 2})
+    
+    The SQL equivalent of the above is:
+    SELECT "products".* FROM "products" WHERE (description= 'camera' OR category_id= 2)
+
+
+    #or
+    > ap Product.where(description: "camera").or(Product.where(category_id: 2))
+
+    The SQL equivalent of the above is:
+    SELECT "products".* FROM "products" WHERE ("products"."description" = $1 OR "products"."category_id" = $2)  
+	[["description", "camera"], ["category_id", 2]]
+
+
+
+    NOT Condition: It will list all the Products except the products with id=2 or 3.
+
+    > ap Product.where.not(id: [2,3])
+    
+    The SQL equivalent of the above is:
+    SELECT "products".* FROM "products" WHERE "products"."id" NOT IN ($1, $2)  [["id", 2], ["id", 3]]
+
+   
 
