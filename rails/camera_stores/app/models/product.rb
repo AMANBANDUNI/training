@@ -11,6 +11,14 @@ class Product < ApplicationRecord
   validates :make, presence: true
 
   before_create :increment_price
+  before_save :update_name
+  @@var = 1
+  def update_name
+  	# debugger
+  	# self.name = name + self.category_id.to_s + var.to_s
+  	self.name = "#{self.name} #{self.category_id}#{@@var}"
+  	@@var += 1
+  end
 
   def increment_price
   	self.price = price+10
