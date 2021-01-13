@@ -11,7 +11,8 @@ class Product < ApplicationRecord
   validates :make, presence: true
 
   before_create :increment_price
-  before_save :update_name
+  before_create :update_name
+  after_create :send_email_to_head
   @@var = 1
   @@var1 = 1
   def update_name
@@ -30,5 +31,10 @@ class Product < ApplicationRecord
   # before_create do
   #   self.price = price+20  	
   # end
+
+  def send_email_to_head
+    # debugger
+    ProductMailer.product_confirmation(Product.last).deliver
+  end
 
 end
