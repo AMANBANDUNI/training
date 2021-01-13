@@ -13,11 +13,14 @@ class Product < ApplicationRecord
   before_create :increment_price
   before_save :update_name
   @@var = 1
+  @@var1 = 1
   def update_name
   	# debugger
   	# self.name = name + self.category_id.to_s + var.to_s
-  	self.name = "#{self.name} #{self.category_id}#{@@var}"
+  	self.name = "#{self.name} #{self.category_id}#{@@var}" if self.category_id == 1
+  	self.name = "#{self.name} #{self.category_id}#{@@var1}" if self.category_id == 2
   	@@var += 1
+  	@@var1 += 1
   end
 
   def increment_price
