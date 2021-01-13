@@ -236,17 +236,94 @@ For example:
 
 
 
+8) LIKE: 
+  Like clause is used to find data from the partial data.
+
+  For Example: 
+  > ap Product.where("name LIKE '%kon%'")
+  The SQL equivalent of the above is: SELECT "products".* FROM "products" WHERE (name LIKE '%kon%')
+
+
+
+
+9) Pluck:
+
+  Pluck is used to extract the selected data in the form of array where as select extract the selected data in the form of ActiveRecord 
+  Class.
+
+  Note: The query will be the same, but the output will be different, as shown below.
+  
+  For Example:
+  > ap Product.pluck(:id)
+  The SQL equivalent of the above is: SELECT "products"."id" FROM "products"
+  Output: 
+  [
+    [ 0] 3,
+    [ 1] 4,
+    [ 2] 5,
+    [ 3] 1,
+    [ 4] 2,
+    [ 5] 6,
+    [ 6] 7,
+    [ 7] 12,
+    [ 8] 13,
+    [ 9] 15,
+    [10] 16,
+    [11] 17,
+    [12] 18
+  ]
+
+
+  and in where also the background query will be the same for example:
+  > ap Product.select(:id)
+  The SQL equivalent of the above is: SELECT "products"."id" FROM "products"
+  [
+    [ 0] #<Product:0x00007f792c343148> {
+        "id" => 3
+    },
+    [ 1] #<Product:0x00007f792c3091c8> {
+        "id" => 4
+    },
+    [ 2] #<Product:0x00007f792c3090b0> {
+        "id" => 5
+    },
+    [ 3] #<Product:0x00007f792c308fc0> {
+        "id" => 1
+    },
+    [ 4] #<Product:0x00007f792c308ed0> {
+        "id" => 2
+    },
+    [ 5] #<Product:0x00007f792c308db8> {
+        "id" => 6
+    },
+    [ 6] #<Product:0x00007f792c308ca0> {
+        "id" => 7
+    },
+    [ 7] #<Product:0x00007f792c308bd8> {
+        "id" => 12
+    },
+    [ 8] #<Product:0x00007f792c308a98> {
+        "id" => 13
+    },
+    [ 9] #<Product:0x00007f792c3089d0> {
+        "id" => 15
+    },
+    [10] #<Product:0x00007f792c3088b8> {
+        "id" => 16
+    },
+    [11] #<Product:0x00007f792c3087a0> {
+        "id" => 17
+    },
+    [12] #<Product:0x00007f792c3086b0> {
+        "id" => 18
+    }
+  ]
 
 
 
 
 
-
-
-
-
-
-8) Scope: 
+10) Scope: 
   Scoping allows you to specify commonly-used queries which can be referenced as method calls on the association objects or models. 
   With these scopes, you can use every method previously covered such as where, joins and includes. All scope bodies should return an 
   ActiveRecord::Relation or nil to allow for further methods (such as other scopes) to be called on it.
@@ -264,3 +341,7 @@ For example:
   scope :min_price, ->(amt) { where("price > ?",amt) }
   # Query will be 
   > ap Product.min_price(62000)
+
+
+
+  
