@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_01_13_122722) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.string "camera_type", default: "Undecided", null: false
-    t.decimal "model", default: "2015.0", null: false
+    t.integer "model", default: 2015, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

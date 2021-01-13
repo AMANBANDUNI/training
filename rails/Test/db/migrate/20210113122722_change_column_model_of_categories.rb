@@ -1,5 +1,11 @@
 class ChangeColumnModelOfCategories < ActiveRecord::Migration[6.0]
   def change
-  	change_column :categories, :model, :decimal
+    def up
+  	  change_column :categories, :model, :decimal
+  	end
+
+  	def down
+  	  change_column :categories, :model, :integer
+    end
   end
 end
