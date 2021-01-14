@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  # resources :home, only: [:index,:create]
-  # get 'products', to: "home#index", as: 'products_path'
+  # resources :products, only: [:index,:create]
+  # get 'products', to: "products#index", as: 'products_path'
 
-  # resources :home, only: [:index,:show,:create] do 
+  # resources :products, only: [:index,:show,:create] do 
   # 	member do
   # 	  get :preview
   # 	end
   # end
 
-  resources :home, only: [:index,:show,:create] do 
+  resources :products, only: [:index,:show,:create] do 
   	collection do
   	  get :preview
   	end
