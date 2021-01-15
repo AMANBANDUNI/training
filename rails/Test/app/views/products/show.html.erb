@@ -18,8 +18,8 @@
   <%= @product.make %>
 </p>
 <p>
-  <strong>Category_id</strong>
-  <%= @product.category_id %>
+  <strong>Category: </strong>
+  <%= Product.find(@product.id).category.name %>
 </p>
 
 <%= link_to 'back', products_path %>
