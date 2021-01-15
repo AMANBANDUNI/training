@@ -53,6 +53,14 @@ class ProductsController < ApplicationController
   	redirect_to products_path, notice: "1 Product destroyed successfully"
   end
 
+  def multiple_destroy
+    debugger
+    Product.where(id: params["product_ids"]).destroy_all
+    redirect_to products_path, notice: "All the selected Products got deleted successfully."
+
+    # @product = Product.find(product)
+  end
+
   private
 
   def product_params
