@@ -1,33 +1,43 @@
 <p>Product Details </p>
-<table>
-  <thead>
-    <tr>
-  	  <th>Name</th>
-  	  <th>Description</th>
-  	  <th>Price</th>
-  	  <th>Make</th>
-    </tr>
-  </thead>
+<strong><p><%= notice %></p> </strong>
+<br><br>
+<%= form_with url: multiple_destroy_products_path do |form| %>
+  <table>
+    <thead>
+      <tr>
+    	  <th>Name</th>
+    	  <th>Description</th>
+    	  <th>Price</th>
+    	  <th>Make</th>
+      </tr>
+    </thead>
 
-  <tbody>
-  	<% @products.each do |product| %>
-  	  <tr>
-  	  	<td><%= product.name %></td>
-  	  	<td><%= product.description %></td>
-  	  	<td><%= product.price %></td>
-  	  	<td><%= product.make %></td>
-  	  	<td><%= product.category_id %></td>
+    <tbody>
+    	<% @products.each do |product| %>
+    	  <tr>
+          <td><%= check_box_tag "product_ids[]", product.id %></td>
+    	  	<td><%= product.name %></td>
+    	  	<td><%= product.description %></td>
+    	  	<td><%= product.price %></td>
+    	  	<td><%= product.make %></td>
+    	  	<td><%= product.category_id %></td>
 
-  	  	<td><%= link_to 'show', product_path(product.id) %></td>
-  	  	<td><%= link_to 'edit', edit_product_path(product.id) %></td>
-  	  	<td><%= link_to 'Delete', product, method: :delete, data: {confirm: "Are you sure ??"} %></td>
-  	  </tr>
-  	<% end %>
-  </tbody>
+    	  	<td><%= link_to 'show', product_path(product.id) %></td>
+    	  	<td><%= link_to 'edit', edit_product_path(product.id) %></td>
+    	  	<td><%= link_to 'Delete', product, method: :delete, data: {confirm: "Are you sure ??"} %></td>
+    	  </tr>
+    	<% end %>
+    </tbody>
+    
 
-</table>
+  </table>
 <br>
 
 <div>
   <%= link_to 'Create New Product', new_product_path %>
 </div>
+
+<div>
+  <%= form.submit "Multi-Delete" %>
+</div>
+<% end %>
