@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  # before_action :permit_all_params
   def index
 	  # @products = Product.all
 	  @products = Product.search(params[:search]).paginate(page: params[:page], per_page: 5)
@@ -27,19 +27,27 @@ class ProductsController < ApplicationController
   # end
 
   def create
-	  @product = Product.new(product_params)
-	  if @product.save
-      # ProductMailer.product_confirmation(@product).deliver
-	    redirect_to @product, notice: "Product created successfully."
-	  else
-	    render :new
-	  end
+    debugger
+    if Product.create!(product_params)
+      redirect_to products_path, notice: "Product created successfully."
+    else
+      render :new
+    end  
+    # debugger
+	  # @product = Product.new(product_params)
+   #  # debugger
+	  # if @product.save
+   #    # ProductMailer.product_confirmation(@product).deliver
+	  #   redirect_to products_path, notice: "Product created successfully."
+	  # else
+	  #   render :new
+	  # end
   end
 
   def update
   	@product = Product.find(params[:id])
   	if @product.update(product_params)
-  	  redirect_to @product, notice: "Product updated successfully"
+  	  redirect_to products_path, notice: "Product updated successfully"
   	else
   	  render :edit
   	end
@@ -71,5 +79,9 @@ class ProductsController < ApplicationController
   def product_params
 	  params.require(:product).permit(:name, :description, :price, :image_url, :search)
   end
-
+  
+  # def permit_all_arams
+  #   params.permit!
+  # end
 end
+
