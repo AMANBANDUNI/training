@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # 	end
   # end
 
-  resources :products, only: [:index,:show,:create] do 
-  	collection do
+  resources :products do 
+  	member do
   	  get :preview
   	end
   end
