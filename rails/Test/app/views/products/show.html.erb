@@ -1,0 +1,25 @@
+<p> Selected Product details </p>
+<br>
+<br>
+<p>
+  <strong>Name: </strong>
+  <%= @product.name %>
+</p>
+<p>
+  <strong>Description: </strong>
+  <%= @product.description %>
+</p>
+<p>
+  <strong>Price: </strong>
+  <%= @product.price %>
+</p>
+<p>
+  <strong>Make: </strong>
+  <%= @product.make %>
+</p>
+<p>
+  <strong>Category_id</strong>
+  <%= @product.category_id %>
+</p>
+
+<%= link_to 'back', products_path %>
