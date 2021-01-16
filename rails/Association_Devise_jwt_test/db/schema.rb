@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_073108) do
+ActiveRecord::Schema.define(version: 2021_01_16_084200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,11 +47,9 @@ ActiveRecord::Schema.define(version: 2021_01_16_073108) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.bigint "post_id", null: false
     t.string "name", default: "No_Tag_present"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_tags_on_post_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,5 +66,4 @@ ActiveRecord::Schema.define(version: 2021_01_16_073108) do
   add_foreign_key "bios", "accounts"
   add_foreign_key "images", "posts"
   add_foreign_key "posts", "users"
-  add_foreign_key "tags", "posts"
 end
