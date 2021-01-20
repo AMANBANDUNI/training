@@ -11,6 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    user = User.new(sign_up_params)
+    # debugger
+    UserMailer.user_confirmation(user).deliver
     super
   end
 
