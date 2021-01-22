@@ -17,7 +17,8 @@
   		<td><%= contact.email %></td>
   		<td><%= contact.address %></td>
   		<td><%= contact.image %></td>
-  		<td><%= link_to 'show', contact_path(contact) %></td>
+      <td><%= link_to 'show', contact_path(contact) %></td>
+  		<td><%= link_to 'edit', edit_contact_path(contact) %></td>
   	</tr>
   	<% end %>
   </tbody>
@@ -26,3 +27,5 @@
 <%= link_to 'Add New Contact', new_contact_path %>
 <br>
 <%= link_to 'back', :back %>
+<br>
+<%= link_to 'Home Page', '/' %>

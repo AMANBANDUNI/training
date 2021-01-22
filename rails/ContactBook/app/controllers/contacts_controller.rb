@@ -18,14 +18,21 @@ class ContactsController < ApplicationController
   	if Contact.create!(contact_params)
   	  redirect_to contacts_path, notice: "New Contact Created succefully"
   	else
-  	  render new
+  	  render :new
   	end
   end
 
   def edit 
+  	@contact = Contact.find(params[:id])
   end
 
   def update
+  	@contact = Contact.find(params[:id])
+  	if @contact.update(contact_params)
+  	  redirect_to contacts_path, notice: "Contact Updated successfully"
+  	else
+  	  render :edit
+  	end
   end
 
   def destroy

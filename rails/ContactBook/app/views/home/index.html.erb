@@ -1,8 +1,8 @@
 <h2>Home#Index</h2>
 
-<h1>Hello <%= current_user.name %></h1>
 <%# debugger %>
 <% if user_signed_in? %>
+  <h1>Hello <%= current_user.name %></h1>
   <h2>Welcom to Contact Book</h2>
   <ul>
   	<strong><li>Profile pic: </strong><%= current_user.profile_pic %></li>
@@ -11,7 +11,7 @@
   	<strong><li>Gender: </strong> <%= current_user.gender %></li>
   	<strong><li>Email: </strong> <%= current_user.email %></li>
   </ul>
-  <%= link_to 'Edit Prodile', edit_user_registration_path %>
+  <%= link_to 'Edit Profile', edit_user_registration_path %>
   <br>
   <%= link_to 'New Contact', new_contact_path %>
   <br>
