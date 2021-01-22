@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 2021_01_21_223953) do
     t.string "email"
     t.text "address"
     t.string "image"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
