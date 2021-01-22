@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
 
   def create
   	if Contact.create!(contact_params)
-  	  redirect_to contacts_path, notice: "New Contact Created succefully"
+  	  redirect_to contacts_path, notice: "New Contact Created successfully"
   	else
   	  render :new
   	end
@@ -36,6 +36,9 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+  	@contact = Contact.find(params[:id])
+  	@contact.destroy
+  	redirect_to contacts_path, notice: "Contact deleted successfully"
   end
 
   private
