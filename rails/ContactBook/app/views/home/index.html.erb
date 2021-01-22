@@ -13,6 +13,10 @@
   </ul>
   <%= link_to 'Edit Prodile', edit_user_registration_path %>
   <br>
+  <%= link_to 'New Contact', new_contact_path %>
+  <br>
+  <%= link_to 'Contacts', contacts_path %>
+  <br>
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to 'Sign_in', user_session_path %>
