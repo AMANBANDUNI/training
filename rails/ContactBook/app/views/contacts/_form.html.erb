@@ -1,0 +1,41 @@
+<%= form_with model: @contact do |form| %>
+  
+  <br>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <br>
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <br>
+  <div>
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number, type: 'number' %>
+    <!-- or <%= form.number_field:phone_number %> -->
+  </div>
+
+  <br>
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <br>
+  <div>
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+  <br>
+  
+<% end %>
