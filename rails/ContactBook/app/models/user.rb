@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :profile_pic, FileUploader
   has_many :contacts
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

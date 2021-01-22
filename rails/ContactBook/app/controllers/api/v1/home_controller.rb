@@ -1,7 +1,6 @@
 module Api
   module V1
 	class HomeController < BaseController
-  	  # before_action :process_token
   	  def index
   	    render json: current_user
       end

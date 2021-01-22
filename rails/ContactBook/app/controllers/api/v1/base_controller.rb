@@ -11,8 +11,8 @@ module Api
   	      begin
   	        jwt_payload = JWT.decode(request.headers['Authorization'], 's3cr3t', true, algorithm: 'HS256')
   	        @current_user_id = jwt_payload[0]['user_id'].to_i
-  	      rescue
-  	  	    head :unauthorized
+  	      rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
+  	  	    render json: {status: 404, message: "Unauthorized User"}
   	      end
   	    end
       end
@@ -26,7 +26,8 @@ module Api
       end
 
       def current_user
-        @current_user ||= super || User.find_by(id: @current_user_id)
+        # @current_user ||= super || User.find_by(id: @current_user_id)
+        @current_user = User.find_by(id: @current_user_id)
       end 
 
     end
