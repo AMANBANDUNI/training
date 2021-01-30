@@ -5,4 +5,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  after_create :user_confirmation
+
+  def user_confirmation
+  	user = User.last
+  	# debugger
+  	UserMailer.user_confirmation(user).deliver
+  end
 end
