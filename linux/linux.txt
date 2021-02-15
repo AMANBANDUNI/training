@@ -233,3 +233,11 @@ Example:
 44) mv -v ~ <directory1/complete location of directory1>/* ~ <directory2/complete location of directory 2> => It will move all the files from directory 1 to directory 2.
 
 
+45) echo => echo command in linux is used to display line of text/string that are passed as an argument .
+
+	    45.1) To create a new file run the echo command followed by the text you want to print and use the redirection 
+		  operator > to write the output to the file you want to create.
+		(echo "Some line" > file1.txt)
+
+	    45.2) If you want to create an empty simply use:
+		(echo > file1.txt)
