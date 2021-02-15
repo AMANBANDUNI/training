@@ -25,7 +25,7 @@ development:
   <<: *default
   database: ContactBook_development
   username: aman
-  password: tech@123
+  password: aman
   host: localhost
   port: 5432
 
@@ -45,7 +45,7 @@ test:
   <<: *default
   database: ContactBook_test
   username: aman
-  password: tech@123
+  password: aman
   host: localhost
   port: 5432
 
