@@ -70,4 +70,6 @@ Basic Git Commands through linux shell:
 
 23) git push --set-upstream origin <new_branch_name> => To first time push the changes of newbranch./To set newbranch to upstream origin.
 
-24) 
+24) git stash => saves them away for later use, and then reverts them from your working copy.
+
+25) git stash pop => to get stashed changes back.
